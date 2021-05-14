@@ -95,7 +95,7 @@ function App() {
         <p id="thePar">Try to beat the computer at Rock-Paper-Scissors. You cannot make the same choice more than
         once in a row.</p>
         <p>And check out <a id="aLink1" href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">Not a PWA yet, updated 05/14/21</footer>
+        <footer id="theFooter">This app is a PWA now! Updated 05/14/21</footer>
       </main>
     );
 }
