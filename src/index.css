@@ -1,13 +1,67 @@
+/*
+  All of the stuff below was there already.
+*/
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/*
+  End of the stuff that was there already.
+*/
+
+button {
+  display: block;
+  padding: 10px;
+  margin-bottom: 30px;
+  /*background-color: peru;*/
+  /*background-color: darkolivegreen;*/
+  background-color: saddlebrown;
+  /*margin-left: 42%;*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 75px;
+  /*width: 15%;*/
+  /*margin-left: 40% + (width / 2);*/
+}
+
+p {
+  /*margin-left: 30%;*/
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  font-style: italic;
+  font-size: 80%;
+}
+
+a {
+  color: black;
+}
+
+main {
+  /*background-color: saddlebrown;*/
+  /*background-color: plum;*/
+  background-color: darkolivegreen;
+  padding-bottom: 300px;
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+h1 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
 }
