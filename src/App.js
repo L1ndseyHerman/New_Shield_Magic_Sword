@@ -86,7 +86,7 @@ function App() {
     }
   
     return (
-      <main>  
+      <main>   
         <h1>Rock-Paper-Scissors</h1>
         <button onClick={() => setUserChoice("Rock")}>Rock</button>
         <button onClick={() => setUserChoice("Paper")}>Paper</button>
