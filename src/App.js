@@ -6,7 +6,7 @@ function makeComputerChoice()
   const computerNumber = Math.floor(Math.random() * 3); 
 
   if (computerNumber === 0)
-  {
+  { 
     return "Rock";
   }
   else if (computerNumber === 1)
