@@ -1,3 +1,4 @@
+//import React, { useState, useEffect } from 'react';
 import React, { useState } from 'react';
 import './App.css';
 
@@ -63,7 +64,13 @@ function checkWinLooseTie(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+/*function disableButton(userChoice)
+{
+  if (userChoice === "Rock")
+  {
 
+  }
+}*/
 
 function App() {
   /*  
@@ -74,7 +81,46 @@ function App() {
 
     To make Rock update every button press, do useEffect.
   */
+
+    /*const [userChoice, setUserChoice] = useState("An Error");
+    var paragraphText = "";
+
+    //useEffect(() => {
+      //var userChoice = "An Error";
+      //function setUserChoice(userChoice) {
+        //var paragraphText = "";
+  
+        //if (userChoice !== "An Error")
+        //{
+          const computerChoice = makeComputerChoice();
+          const winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
+          paragraphText = "Player1 chose " + userChoice +
+          " and Computer chose " + computerChoice + ". " + winLooseTieText;
+        //}
+      //}
+    });
+    */
+
+
+    
+    /*useEffect(() => {
+      function handleStatusChange(status) {
+        setIsOnline(status.isOnline);
+      }*/
+    
+    //const [userChoice, setUserChoice] = useEffect("An Error");
+    /*useEffect(() => {
+      // Update the document title using the browser API
+      document.title = `You clicked ${count} times`;
+    });*/
+
+
+
+
+
     const [userChoice, setUserChoice] = useState("An Error");
+    //var disabledButtons = [false, false, false];
+    const [disabledButtons, setDisabledButton] = useState([false, false, false]);
     var paragraphText = "";
   
     if (userChoice !== "An Error")
@@ -83,14 +129,20 @@ function App() {
       const winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
       paragraphText = "Player1 chose " + userChoice +
        " and Computer chose " + computerChoice + ". " + winLooseTieText;
+
+       // New! Disabling the button that was just pressed:
+
     }
   
     return (
       <main>   
         <h1>Rock-Paper-Scissors</h1>
-        <button onClick={() => setUserChoice("Rock")}>Rock</button>
-        <button onClick={() => setUserChoice("Paper")}>Paper</button>
-        <button onClick={() => setUserChoice("Scissors")}>Scissors</button>
+        <button disabled={disabledButtons[0]} onClick={() => {setUserChoice("Rock");
+          setDisabledButton([true, false, false]);}}>Rock</button>
+        <button disabled={disabledButtons[1]} onClick={() => {setUserChoice("Paper");
+          setDisabledButton([false, true, false]);}}>Paper</button>
+        <button disabled={disabledButtons[2]} onClick={() => {setUserChoice("Scissors");
+          setDisabledButton([false, false, true]);}}>Scissors</button>
         <p>{paragraphText}</p>
         <p id="thePar">Try to beat the computer at Rock-Paper-Scissors. You cannot make the same choice more than
         once in a row.</p>
