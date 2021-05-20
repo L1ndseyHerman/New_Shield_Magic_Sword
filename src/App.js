@@ -80,19 +80,24 @@ function App()
   return (
     <main>   
       <div id="whereIsTheOtherDiv">
-        <h1>Rock-Paper-Scissors</h1>
-        <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Rock");
-          setDisabledButton([true, false, false]);}}>Rock</button>
-        <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Paper");
-          setDisabledButton([false, true, false]);}}>Paper</button>
-        <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Scissors");
-          setDisabledButton([false, false, true]);}}>Scissors</button>
+        <h1>Shield-Magic-Sword</h1>
+        <div id="buttonsAndDescriptionsDiv">
+          <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Rock");
+            setDisabledButton([true, false, false]);}}>Shield</button>
+          <label>Blocks two physical damage.</label>
+          <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Paper");
+            setDisabledButton([false, true, false]);}}>Magic</button>
+          <label>Deals one magic damage.</label>
+          <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Scissors");
+            setDisabledButton([false, false, true]);}}>Sword</button>
+          <label>Deals two physical damage.</label>
+        </div>
         <p>{paragraphText}</p>
-        <p id="thePar">This game is in-between versions. Check out version 
-          one <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
+        <p id="thePar">This game is in-between versions. Check out Version 
+          One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
           Here</a>.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/19/21.</footer>
+        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/20/21.</footer>
       </div>
     </main>
   );
