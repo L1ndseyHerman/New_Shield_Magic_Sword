@@ -92,12 +92,18 @@ function App()
             setDisabledButton([false, false, true]);}}>Sword</button>
           <label>Deals two physical damage.</label>
         </div>
-        <p>{paragraphText}</p>
-        <p id="thePar">This game is in-between versions. Check out Version 
-          One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
-          Here</a>.</p>
-        <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/20/21.</footer>
+        <div id="healthAndTurnInfoDiv">
+          <p id="playerOneHealth">Player1 health: 10</p>
+          <p id="computerHealth">Computer health: 10</p>
+        </div>
+        <br/>
+        <br/>
+          <p>{paragraphText}</p>
+          <p id="thePar">This game is in-between versions. Check out Version 
+            One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
+            Here</a>.</p>
+          <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
+          <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/20/21.</footer>
       </div>
     </main>
   );
