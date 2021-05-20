@@ -24,19 +24,25 @@ button {
   display: block;
   padding: 10px;
   margin-bottom: 30px;
-  /*background-color: peru;*/
-  /*background-color: darkolivegreen;*/
-  background-color: saddlebrown;
-  /*margin-left: 42%;*/
+  /*background-color: saddlebrown;*/
   margin-left: auto;
   margin-right: auto;
   width: 75px;
-  /*width: 15%;*/
-  /*margin-left: 40% + (width / 2);*/
+}
+
+#shield {
+  background-color: darkolivegreen;
+}
+
+#magic {
+  background-color: royalblue;
+}
+
+#sword {
+  background-color: firebrick;
 }
 
 p {
-  /*margin-left: 30%;*/
   text-align: center;
 }
 
@@ -50,18 +56,23 @@ a {
   color: black;
 }
 
+#whereIsTheOtherDiv {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 330px;
+  background-color: saddlebrown;
+}
+
 main {
-  /*background-color: saddlebrown;*/
-  /*background-color: plum;*/
-  background-color: darkolivegreen;
-  padding-bottom: 300px;
-  padding-top: 25px;
-  padding-left: 50px;
-  padding-right: 50px;
+  background-color: wheat;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 h1 {
-  /*padding-top: 25px;*/
-  padding-bottom: 25px;
+  padding-bottom: 10px;
   text-align: center;
 }

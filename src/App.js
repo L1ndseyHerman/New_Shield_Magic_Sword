@@ -79,18 +79,21 @@ function App()
 
   return (
     <main>   
-      <h1>Rock-Paper-Scissors</h1>
-      <button disabled={disabledButtons[0]} onClick={() => {setUserChoice("Rock");
-        setDisabledButton([true, false, false]);}}>Rock</button>
-      <button disabled={disabledButtons[1]} onClick={() => {setUserChoice("Paper");
-        setDisabledButton([false, true, false]);}}>Paper</button>
-      <button disabled={disabledButtons[2]} onClick={() => {setUserChoice("Scissors");
-        setDisabledButton([false, false, true]);}}>Scissors</button>
-      <p>{paragraphText}</p>
-      <p id="thePar">Try to beat the computer at Rock-Paper-Scissors. You cannot make the same choice more than
-      once in a row.</p>
-      <p>And check out <a id="aLink1" href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-      <footer id="theFooter">This app is a PWA now! Updated 05/17/21</footer>
+      <div id="whereIsTheOtherDiv">
+        <h1>Rock-Paper-Scissors</h1>
+        <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Rock");
+          setDisabledButton([true, false, false]);}}>Rock</button>
+        <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Paper");
+          setDisabledButton([false, true, false]);}}>Paper</button>
+        <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Scissors");
+          setDisabledButton([false, false, true]);}}>Scissors</button>
+        <p>{paragraphText}</p>
+        <p id="thePar">This game is in-between versions. Check out version 
+          one <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
+          Here</a>.</p>
+        <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
+        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/19/21.</footer>
+      </div>
     </main>
   );
 }
