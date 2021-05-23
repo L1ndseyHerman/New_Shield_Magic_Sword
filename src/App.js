@@ -111,19 +111,65 @@ function checkPlayerOneHealthLost(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+function checkComputerHealthLost(userChoice, computerChoice)
+{
+  if (userChoice === "Shield" && computerChoice === "Shield")
+  {
+    return 0;
+  }
+  else if (userChoice === "Shield" && computerChoice === "Magic")
+  {
+    return 0;
+  }
+  else if (userChoice === "Shield" && computerChoice === "Sword")
+  {
+    return 0;
+  }
+
+  else if (userChoice === "Magic" && computerChoice === "Shield")
+  {
+    return 1;
+  }
+  else if (userChoice === "Magic" && computerChoice === "Magic")
+  {
+    return 1;
+  }
+  else if (userChoice === "Magic" && computerChoice === "Sword")
+  {
+    return 1;
+  }
+
+  else if (userChoice === "Sword" && computerChoice === "Shield")
+  {
+    return 0;
+  }
+  else if (userChoice === "Sword" && computerChoice === "Magic")
+  {
+    return 2;
+  }
+  else if (userChoice === "Sword" && computerChoice === "Sword")
+  {
+    return 2;
+  }
+
+  return "This is an error. Click a button to start a game.";
+}
+
 function App() 
 {
   const [userChoice, setUserChoice] = useState("An Error");
   const [disabledButtons, setDisabledButton] = useState([false, false, false]);
   var paragraphText = "";
-  var playerOneHealth = 10;
+  //var playerOneHealth = 10;
+  //var computerHealth = 10;
   //var [playerOneHealth, setPlayerOneHealth] = useState(10);
   //var [computerHealth, setComputerHealth] = useState(10);
 
   //  Gets it from local, temp browser storage, or something.
   //useEffect(() => {
     //const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
-    playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10)
+  var playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
+  var computerHealth = Number(localStorage.getItem("computerHealth") || 10);
     //setPlayerOneHealth(playerOneStoredHealth)
   //}, [])
 
@@ -133,6 +179,9 @@ function App()
     //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
     const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
     playerOneHealth = playerOneHealth - playerOneHealthLost;
+
+    const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
+    computerHealth = computerHealth - computerHealthLost;
     //setPlayerOneHealth(playerOneHealthLost);
     const winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
     paragraphText = "Player1 chose " + userChoice +
@@ -142,7 +191,8 @@ function App()
   //  The game appears to do double the damage wo this useEffect(), although more testing is
   // needed....
   useEffect(() => {
-    localStorage.setItem("playerOneHealth", playerOneHealth)
+    localStorage.setItem("playerOneHealth", playerOneHealth);
+    localStorage.setItem("computerHealth", computerHealth);
   })
 
   //  Now that you've got the previous health, subtract the health from this turn:
@@ -168,7 +218,7 @@ function App()
         </div>
         <div id="healthAndTurnInfoDiv">
           <p id="playerOneHealth">Player1 health: {playerOneHealth}</p>
-          <p id="computerHealth">Computer health: 10</p>
+          <p id="computerHealth">Computer health: {computerHealth}</p>
         </div>
         <br/>
         <br/>
@@ -177,7 +227,7 @@ function App()
             One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
             Here</a>.</p>
           <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-          <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/22/21.</footer>
+          <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/23/21.</footer>
       </div>
     </main>
   );
