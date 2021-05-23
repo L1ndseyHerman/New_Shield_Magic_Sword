@@ -63,31 +63,93 @@ function checkWinLooseTie(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+//  This function repeats the same checks as the one above it! 
+//  ToDo: Make a class or something so that these checks are only needed once.
+
+//  The number this returns is how much health playerOne looses this turn
+function checkPlayerOneHealthLost(userChoice, computerChoice)
+{
+  if (userChoice === "Shield" && computerChoice === "Shield")
+  {
+    return 0;
+  }
+  else if (userChoice === "Shield" && computerChoice === "Magic")
+  {
+    return 1;
+  }
+  else if (userChoice === "Shield" && computerChoice === "Sword")
+  {
+    return 0;
+  }
+
+  else if (userChoice === "Magic" && computerChoice === "Shield")
+  {
+    return 0;
+  }
+  else if (userChoice === "Magic" && computerChoice === "Magic")
+  {
+    return 1;
+  }
+  else if (userChoice === "Magic" && computerChoice === "Sword")
+  {
+    return 2;
+  }
+
+  else if (userChoice === "Sword" && computerChoice === "Shield")
+  {
+    return 0;
+  }
+  else if (userChoice === "Sword" && computerChoice === "Magic")
+  {
+    return 1;
+  }
+  else if (userChoice === "Sword" && computerChoice === "Sword")
+  {
+    return 2;
+  }
+
+  return "This is an error. Click a button to start a game.";
+}
+
 function App() 
 {
   const [userChoice, setUserChoice] = useState("An Error");
   const [disabledButtons, setDisabledButton] = useState([false, false, false]);
   var paragraphText = "";
-  var [playerOneHealth, setPlayerOneHealth] = useState(10);
+  var playerOneHealth = 10;
+  //var [playerOneHealth, setPlayerOneHealth] = useState(10);
   //var [computerHealth, setComputerHealth] = useState(10);
 
   //  Gets it from local, temp browser storage, or something.
-  useEffect(() => {
-    const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
-    setPlayerOneHealth(playerOneStoredHealth)
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem("playerOneHealth", playerOneHealth)
-  }, [playerOneHealth])
+  //useEffect(() => {
+    //const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
+    playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10)
+    //setPlayerOneHealth(playerOneStoredHealth)
+  //}, [])
 
   if (userChoice !== "An Error")
   {
     const computerChoice = makeComputerChoice();
+    //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
+    const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
+    playerOneHealth = playerOneHealth - playerOneHealthLost;
+    //setPlayerOneHealth(playerOneHealthLost);
     const winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
     paragraphText = "Player1 chose " + userChoice +
      " and Computer chose " + computerChoice + ". " + winLooseTieText;
   }
+
+  //  The game appears to do double the damage wo this useEffect(), although more testing is
+  // needed....
+  useEffect(() => {
+    localStorage.setItem("playerOneHealth", playerOneHealth)
+  })
+
+  //  Now that you've got the previous health, subtract the health from this turn:
+  //setPlayerOneHealth(p1h => p1h - 1);
+  
+
+
 
   return (
     <main>   
@@ -95,10 +157,10 @@ function App()
         <h1>Shield-Magic-Sword</h1>
         <div id="buttonsAndDescriptionsDiv">
           <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Shield");
-            setDisabledButton([true, false, false]); setPlayerOneHealth(p1h => p1h - 1)}}>Shield</button>
+            setDisabledButton([true, false, false]);}}>Shield</button>
           <label>Blocks two physical damage.</label>
           <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
-            setDisabledButton([false, true, false]); setPlayerOneHealth(p1h => 10)}}>Magic</button>
+            setDisabledButton([false, true, false]);}}>Magic</button>
           <label>Deals one magic damage.</label>
           <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Sword");
             setDisabledButton([false, false, true]);}}>Sword</button>
