@@ -69,15 +69,15 @@ function App()
   const [disabledButtons, setDisabledButton] = useState([false, false, false]);
   var paragraphText = "";
   var [playerOneHealth, setPlayerOneHealth] = useState(10);
-  var [computerHealth, setComputerHealth] = useState(10);
+  //var [computerHealth, setComputerHealth] = useState(10);
 
   //  Gets it from local, temp browser storage, or something.
-  React.useEffect(() => {
+  useEffect(() => {
     const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
     setPlayerOneHealth(playerOneStoredHealth)
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("playerOneHealth", playerOneHealth)
   }, [playerOneHealth])
 
@@ -98,7 +98,7 @@ function App()
             setDisabledButton([true, false, false]); setPlayerOneHealth(p1h => p1h - 1)}}>Shield</button>
           <label>Blocks two physical damage.</label>
           <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
-            setDisabledButton([false, true, false]);}}>Magic</button>
+            setDisabledButton([false, true, false]); setPlayerOneHealth(p1h => 10)}}>Magic</button>
           <label>Deals one magic damage.</label>
           <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Sword");
             setDisabledButton([false, false, true]);}}>Sword</button>
@@ -106,7 +106,7 @@ function App()
         </div>
         <div id="healthAndTurnInfoDiv">
           <p id="playerOneHealth">Player1 health: {playerOneHealth}</p>
-          <p id="computerHealth">Computer health: {computerHealth}</p>
+          <p id="computerHealth">Computer health: 10</p>
         </div>
         <br/>
         <br/>
