@@ -183,39 +183,46 @@ function App()
     //setPlayerOneHealth(playerOneStoredHealth)
   //}, [])
 
-  if (userChoice !== "First Turn")
+  if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {
-    const computerChoice = makeComputerChoice();
-    //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
-    const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
-    playerOneHealth = playerOneHealth - playerOneHealthLost;
+    paragraphText = "Try playing a new game.";
+  }
+  else 
+  {
+    if (userChoice !== "First Turn")
+    {
+      const computerChoice = makeComputerChoice();
+      //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
+      const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
+      playerOneHealth = playerOneHealth - playerOneHealthLost;
 
-    const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
-    computerHealth = computerHealth - computerHealthLost;
-    //setPlayerOneHealth(playerOneHealthLost);
+      const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
+      computerHealth = computerHealth - computerHealthLost;
+      //setPlayerOneHealth(playerOneHealthLost);
 
-    var winLooseTieText = "";
-    /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
-    {
-      //winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
-    }*/
+      var winLooseTieText = "";
+      /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
+      {
+        //winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
+      }*/
 
-    if ((playerOneHealth <= 0) && (computerHealth <= 0))
-    {
-      winLooseTieText = "Tie.";
-    }
-    else if (playerOneHealth <= 0)
-    {
-      winLooseTieText = "Computer wins.";
-    }
-    else if (computerHealth <= 0)
-    {
-      winLooseTieText = "Player1 wins!";
-    }
+      if ((playerOneHealth <= 0) && (computerHealth <= 0))
+      {
+        winLooseTieText = "Tie.";
+      }
+      else if (playerOneHealth <= 0)
+      {
+        winLooseTieText = "Computer wins.";
+      }
+      else if (computerHealth <= 0)
+      {
+        winLooseTieText = "Player1 wins!";
+      }
 
     
-    paragraphText = "Player1 chose " + userChoice +
-     " and Computer chose " + computerChoice + ". " + winLooseTieText;
+      paragraphText = "Player1 chose " + userChoice +
+      " and Computer chose " + computerChoice + ". " + winLooseTieText;
+    }
   }
 
   //  The white screen of death :(
@@ -233,7 +240,6 @@ function App()
 
   //  Now that you've got the previous health, subtract the health from this turn:
   //setPlayerOneHealth(p1h => p1h - 1);
-  
 
 
 
