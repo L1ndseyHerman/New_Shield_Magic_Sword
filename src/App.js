@@ -1,123 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-//  The first turn, all options are available.
-function makeFirstTurnComputerChoice()
+function makeComputerChoice()
 {
-  const computerNumber = Math.floor(Math.random() * 3); 
-  var lastComputerChoice;
-
-  if (computerNumber === 0)
-  {
-    lastComputerChoice = "Shield";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
-  }
-  else if (computerNumber === 1)
-  {
-    lastComputerChoice = "Magic";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
-  }
-  else 
-  {
-    lastComputerChoice = "Sword";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
-  }
-}
-
-function makeNextTurnComputerChoice()
-{
-  const computerNumber = Math.floor(Math.random() * 2); 
+  var computerNumber = Math.floor(Math.random() * 2); 
   var lastComputerChoice = String(localStorage.getItem("lastComputerChoice") || "An Error");
 
   if ((lastComputerChoice === "Shield") && (computerNumber === 0))
   {
-    lastComputerChoice = "Magic";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Magic";
   }
   else if ((lastComputerChoice === "Shield") && (computerNumber === 1))
   {
-    lastComputerChoice = "Sword";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Sword";
   }
   else if ((lastComputerChoice === "Magic") && (computerNumber === 0))
   {
-    lastComputerChoice = "Shield";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Shield";
   }
   else if ((lastComputerChoice === "Magic") && (computerNumber === 1))
   {
-    lastComputerChoice = "Sword";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Sword";
   }
   else if ((lastComputerChoice === "Sword") && (computerNumber === 0))
   {
-    lastComputerChoice = "Shield";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Shield";
   }
   else if ((lastComputerChoice === "Sword") && (computerNumber === 1))
   {
-    lastComputerChoice = "Magic";
-    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
-    return lastComputerChoice;
+    return "Magic";
   }
-  //  Testing for now: 
+  //  Means this is the first turn, so choose whatever: 
   else 
   {
-    return "Shield";
+    computerNumber = Math.floor(Math.random() * 3); 
+  
+    if (computerNumber === 0)
+    {
+      return "Shield";
+    }
+    else if (computerNumber === 1)
+    {
+      return "Magic";
+    }
+    else 
+    {
+      return "Sword";
+    }
   }
 }
-
-/*function checkWinLooseTie(userChoice, computerChoice)
-{
-  if (userChoice === "Shield" && computerChoice === "Shield")
-  {
-    return "Tie.";
-  }
-  else if (userChoice === "Shield" && computerChoice === "Magic")
-  {
-    return "Computer wins!";
-  }
-  else if (userChoice === "Shield" && computerChoice === "Sword")
-  {
-    return "Player1 wins!";
-  }
-
-  else if (userChoice === "Magic" && computerChoice === "Shield")
-  {
-    return "Player1 wins!";
-  }
-  else if (userChoice === "Magic" && computerChoice === "Magic")
-  {
-    return "Tie.";
-  }
-  else if (userChoice === "Magic" && computerChoice === "Sword")
-  {
-    return "Computer wins!";
-  }
-
-  else if (userChoice === "Sword" && computerChoice === "Shield")
-  {
-    return "Computer wins!";
-  }
-  else if (userChoice === "Sword" && computerChoice === "Magic")
-  {
-    return "Player1 wins!";
-  }
-  else if (userChoice === "Sword" && computerChoice === "Sword")
-  {
-    return "Tie.";
-  }
-
-  return "This is an error. Click a button to start a game.";
-}*/
 
 //  This function repeats the same checks as the one above it! 
 //  ToDo: Make a class or something so that these checks are only needed once.
@@ -167,6 +98,7 @@ function checkPlayerOneHealthLost(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+
 function checkComputerHealthLost(userChoice, computerChoice)
 {
   if (userChoice === "Shield" && computerChoice === "Shield")
@@ -211,23 +143,36 @@ function checkComputerHealthLost(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+
+function checkWinLooseTie(playerOneHealth, computerHealth)
+{
+  if ((playerOneHealth <= 0) && (computerHealth <= 0))
+  {
+    return "Tie.";
+  }
+  else if (playerOneHealth <= 0)
+  {
+    return "Computer wins.";
+  }
+  else if (computerHealth <= 0)
+  {
+    return "Player1 wins!";
+  }
+  //  Whoops, make it nothing if no Game Over yet:
+  else 
+  {
+    return "";
+  }
+}
+
+
 function App() 
 {
   const [userChoice, setUserChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButton] = useState([false, false, false]);
   var paragraphText = "";
-  //const [p1Health, setPlayerOneHealth] = useState(10);
-  //const [compHealth, setComputerHealth] = useState(10);
-  ///var playerOneHealth = [p1Health];
-  //var computerHealth = [compHealth];
   var playerOneHealth = 10;
   var computerHealth = 10;
-  //var [playerOneHealth, setPlayerOneHealth] = useState(10);
-  //var [computerHealth, setComputerHealth] = useState(10);
-
-  //  Gets it from local, temp browser storage, or something.
-  //useEffect(() => {
-    //const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
   const [isNotNewGame, setIsNotNewGame] = useState(true);
 
   //  Already reset to 10 if it is :)
@@ -236,8 +181,6 @@ function App()
     playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
     computerHealth = Number(localStorage.getItem("computerHealth") || 10);
   }
-    //setPlayerOneHealth(playerOneStoredHealth)
-  //}, [])
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {
@@ -247,60 +190,20 @@ function App()
   {
     if (userChoice !== "First Turn")
     {
-      //var lastComputerChoice = String(localStorage.getItem("lastComputerChoice") || "An Error");
-      //var lastComputerChoice = localStorage.getItem("lastComputerChoice") || "An Error";
-      var computerChoice;
-      
-      //if (lastComputerChoice === "An Error")
-      if (isNotNewGame === false)
-      {
-        computerChoice = makeFirstTurnComputerChoice();
-        paragraphText = "Testing ";
-      }
-      else 
-      {
-        computerChoice = makeNextTurnComputerChoice();
-        //paragraphText = "Testing ";
-      }
-      
-      //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
+      var computerChoice = makeComputerChoice();
+
       const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
       playerOneHealth = playerOneHealth - playerOneHealthLost;
 
       const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
       computerHealth = computerHealth - computerHealthLost;
-      //setPlayerOneHealth(playerOneHealthLost);
 
-      var winLooseTieText = "";
-      /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
-      {
-        //winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
-      }*/
-
-      if ((playerOneHealth <= 0) && (computerHealth <= 0))
-      {
-        winLooseTieText = "Tie.";
-      }
-      else if (playerOneHealth <= 0)
-      {
-        winLooseTieText = "Computer wins.";
-      }
-      else if (computerHealth <= 0)
-      {
-        winLooseTieText = "Player1 wins!";
-      }
-
+      var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
       paragraphText = paragraphText + "Player1 chose " + userChoice +
       " and Computer chose " + computerChoice + ". " + winLooseTieText;
     }
   }
-
-  //  The white screen of death :(
-  /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
-  {
-    setDisabledButton([true, true, true]);
-  }*/
 
   //  The game appears to do double the damage wo this useEffect(), although more testing is
   // needed....
@@ -309,10 +212,6 @@ function App()
     localStorage.setItem("computerHealth", computerHealth);
     localStorage.setItem("lastComputerChoice", computerChoice);
   })
-
-  //  Now that you've got the previous health, subtract the health from this turn:
-  //setPlayerOneHealth(p1h => p1h - 1);
-
 
 
   return (
