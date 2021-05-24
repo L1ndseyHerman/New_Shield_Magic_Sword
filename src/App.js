@@ -19,7 +19,7 @@ function makeComputerChoice()
   }
 }
 
-function checkWinLooseTie(userChoice, computerChoice)
+/*function checkWinLooseTie(userChoice, computerChoice)
 {
   if (userChoice === "Shield" && computerChoice === "Shield")
   {
@@ -61,7 +61,7 @@ function checkWinLooseTie(userChoice, computerChoice)
   }
 
   return "This is an error. Click a button to start a game.";
-}
+}*/
 
 //  This function repeats the same checks as the one above it! 
 //  ToDo: Make a class or something so that these checks are only needed once.
@@ -193,10 +193,36 @@ function App()
     const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
     computerHealth = computerHealth - computerHealthLost;
     //setPlayerOneHealth(playerOneHealthLost);
-    const winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
+
+    var winLooseTieText = "";
+    /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
+    {
+      //winLooseTieText = checkWinLooseTie(userChoice, computerChoice);
+    }*/
+
+    if ((playerOneHealth <= 0) && (computerHealth <= 0))
+    {
+      winLooseTieText = "Tie.";
+    }
+    else if (playerOneHealth <= 0)
+    {
+      winLooseTieText = "Computer wins.";
+    }
+    else if (computerHealth <= 0)
+    {
+      winLooseTieText = "Player1 wins!";
+    }
+
+    
     paragraphText = "Player1 chose " + userChoice +
      " and Computer chose " + computerChoice + ". " + winLooseTieText;
   }
+
+  //  The white screen of death :(
+  /*if ((playerOneHealth <= 0) || (computerHealth <= 0))
+  {
+    setDisabledButton([true, true, true]);
+  }*/
 
   //  The game appears to do double the damage wo this useEffect(), although more testing is
   // needed....
@@ -232,16 +258,16 @@ function App()
         </div>
         <br/>
         <br/>
+        <p>{paragraphText}</p>
         <div id="newGameDiv">
-          <button id="newGameButton" onClick={() => {setIsNotNewGame(false);
+          <button onClick={() => {setIsNotNewGame(false);
             setUserChoice("First Turn"); setDisabledButton([false, false, false]);}}>New Game</button>
         </div>
-        <p>{paragraphText}</p>
         <p id="thePar">This game is in-between versions. Check out Version 
           One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
           Here</a>.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/23/21.</footer>
+        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/24/21.</footer>
       </div>
     </main>
   );

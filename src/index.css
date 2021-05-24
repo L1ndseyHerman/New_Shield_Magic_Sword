@@ -21,11 +21,7 @@ code {
 */
 
 button {
-  /*display: inline-block;*/
   padding: 10px;
-  /*margin-bottom: 30px;*/
-  /*margin-left: auto;
-  margin-right: auto;*/
   width: 75px;
   background-color: wheat;
 }
@@ -36,14 +32,6 @@ button {
   margin-right: auto;
 }
 
-#newGameButton {
-  /*margin-left: 50%;
-  margin-right: 50%;*/
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  background-color: wheat;
-}
-
 label {
   padding-left: 10px;
 }
@@ -52,7 +40,6 @@ label {
   margin-left: auto;
   margin-right: auto;
   width: 300px;
-  /*border: 3px solid black;*/
 }
 
 #shield {
@@ -91,7 +78,6 @@ a {
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 330px;
-  /*padding-bottom: 10%;*/
   background-color: saddlebrown;
 }
 
@@ -110,15 +96,12 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: 300px;
-  /*border: 3px solid black;*/
 }
 
 #playerOneHealth {
-  /*text-align: left;*/
   float: left;
 }
 
 #computerHealth {
-  /*text-align: right;*/
   float: right;
 }
