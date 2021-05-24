@@ -1,21 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function makeComputerChoice()
+//  The first turn, all options are available.
+function makeFirstTurnComputerChoice()
 {
   const computerNumber = Math.floor(Math.random() * 3); 
+  var lastComputerChoice;
 
   if (computerNumber === 0)
   {
-    return "Shield";
+    lastComputerChoice = "Shield";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
   }
   else if (computerNumber === 1)
   {
-    return "Magic";
+    lastComputerChoice = "Magic";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
   }
   else 
   {
-    return "Sword";
+    lastComputerChoice = "Sword";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+}
+
+function makeNextTurnComputerChoice()
+{
+  const computerNumber = Math.floor(Math.random() * 2); 
+  var lastComputerChoice = String(localStorage.getItem("lastComputerChoice") || "An Error");
+
+  if ((lastComputerChoice === "Shield") && (computerNumber === 0))
+  {
+    lastComputerChoice = "Magic";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  else if ((lastComputerChoice === "Shield") && (computerNumber === 1))
+  {
+    lastComputerChoice = "Sword";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  else if ((lastComputerChoice === "Magic") && (computerNumber === 0))
+  {
+    lastComputerChoice = "Shield";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  else if ((lastComputerChoice === "Magic") && (computerNumber === 1))
+  {
+    lastComputerChoice = "Sword";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  else if ((lastComputerChoice === "Sword") && (computerNumber === 0))
+  {
+    lastComputerChoice = "Shield";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  else if ((lastComputerChoice === "Sword") && (computerNumber === 1))
+  {
+    lastComputerChoice = "Magic";
+    //localStorage.setItem("lastComputerChoice", lastComputerChoice);
+    return lastComputerChoice;
+  }
+  //  Testing for now: 
+  else 
+  {
+    return "Shield";
   }
 }
 
@@ -191,7 +247,22 @@ function App()
   {
     if (userChoice !== "First Turn")
     {
-      const computerChoice = makeComputerChoice();
+      //var lastComputerChoice = String(localStorage.getItem("lastComputerChoice") || "An Error");
+      //var lastComputerChoice = localStorage.getItem("lastComputerChoice") || "An Error";
+      var computerChoice;
+      
+      //if (lastComputerChoice === "An Error")
+      if (isNotNewGame === false)
+      {
+        computerChoice = makeFirstTurnComputerChoice();
+        paragraphText = "Testing ";
+      }
+      else 
+      {
+        computerChoice = makeNextTurnComputerChoice();
+        //paragraphText = "Testing ";
+      }
+      
       //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
       const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
       playerOneHealth = playerOneHealth - playerOneHealthLost;
@@ -220,7 +291,7 @@ function App()
       }
 
     
-      paragraphText = "Player1 chose " + userChoice +
+      paragraphText = paragraphText + "Player1 chose " + userChoice +
       " and Computer chose " + computerChoice + ". " + winLooseTieText;
     }
   }
@@ -236,6 +307,7 @@ function App()
   useEffect(() => {
     localStorage.setItem("playerOneHealth", playerOneHealth);
     localStorage.setItem("computerHealth", computerHealth);
+    localStorage.setItem("lastComputerChoice", computerChoice);
   })
 
   //  Now that you've got the previous health, subtract the health from this turn:
