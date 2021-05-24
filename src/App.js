@@ -206,7 +206,7 @@ function App()
   }
 
   //  The game appears to do double the damage wo this useEffect(), although more testing is
-  // needed....
+  //  needed....
   useEffect(() => {
     localStorage.setItem("playerOneHealth", playerOneHealth);
     localStorage.setItem("computerHealth", computerHealth);
