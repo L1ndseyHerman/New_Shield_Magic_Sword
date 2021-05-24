@@ -23,10 +23,25 @@ code {
 button {
   /*display: inline-block;*/
   padding: 10px;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   /*margin-left: auto;
   margin-right: auto;*/
   width: 75px;
+  background-color: wheat;
+}
+
+#newGameDiv {
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#newGameButton {
+  /*margin-left: 50%;
+  margin-right: 50%;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  background-color: wheat;
 }
 
 label {
@@ -42,14 +57,17 @@ label {
 
 #shield {
   background-color: darkolivegreen;
+  margin-bottom: 30px;
 }
 
 #magic {
   background-color: royalblue;
+  margin-bottom: 30px;
 }
 
 #sword {
   background-color: firebrick;
+  margin-bottom: 30px;
 }
 
 p {

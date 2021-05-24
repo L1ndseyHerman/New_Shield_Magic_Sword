@@ -157,23 +157,33 @@ function checkComputerHealthLost(userChoice, computerChoice)
 
 function App() 
 {
-  const [userChoice, setUserChoice] = useState("An Error");
+  const [userChoice, setUserChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButton] = useState([false, false, false]);
   var paragraphText = "";
-  //var playerOneHealth = 10;
-  //var computerHealth = 10;
+  //const [p1Health, setPlayerOneHealth] = useState(10);
+  //const [compHealth, setComputerHealth] = useState(10);
+  ///var playerOneHealth = [p1Health];
+  //var computerHealth = [compHealth];
+  var playerOneHealth = 10;
+  var computerHealth = 10;
   //var [playerOneHealth, setPlayerOneHealth] = useState(10);
   //var [computerHealth, setComputerHealth] = useState(10);
 
   //  Gets it from local, temp browser storage, or something.
   //useEffect(() => {
     //const playerOneStoredHealth = Number(localStorage.getItem("playerOneHealth") || 10)
-  var playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
-  var computerHealth = Number(localStorage.getItem("computerHealth") || 10);
+  const [isNotNewGame, setIsNotNewGame] = useState(true);
+
+  //  Already reset to 10 if it is :)
+  if (isNotNewGame)
+  {
+    playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
+    computerHealth = Number(localStorage.getItem("computerHealth") || 10);
+  }
     //setPlayerOneHealth(playerOneStoredHealth)
   //}, [])
 
-  if (userChoice !== "An Error")
+  if (userChoice !== "First Turn")
   {
     const computerChoice = makeComputerChoice();
     //setPlayerOneHealth(p1h => p1h - (checkPlayerOneHealthLost(userChoice, computerChoice)));
@@ -207,13 +217,13 @@ function App()
         <h1>Shield-Magic-Sword</h1>
         <div id="buttonsAndDescriptionsDiv">
           <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Shield");
-            setDisabledButton([true, false, false]);}}>Shield</button>
+            setDisabledButton([true, false, false]); setIsNotNewGame(true);}}>Shield</button>
           <label>Blocks two physical damage.</label>
           <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
-            setDisabledButton([false, true, false]);}}>Magic</button>
+            setDisabledButton([false, true, false]); setIsNotNewGame(true);}}>Magic</button>
           <label>Deals one magic damage.</label>
           <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Sword");
-            setDisabledButton([false, false, true]);}}>Sword</button>
+            setDisabledButton([false, false, true]); setIsNotNewGame(true);}}>Sword</button>
           <label>Deals two physical damage.</label>
         </div>
         <div id="healthAndTurnInfoDiv">
@@ -222,12 +232,16 @@ function App()
         </div>
         <br/>
         <br/>
-          <p>{paragraphText}</p>
-          <p id="thePar">This game is in-between versions. Check out Version 
-            One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
-            Here</a>.</p>
-          <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-          <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/23/21.</footer>
+        <div id="newGameDiv">
+          <button id="newGameButton" onClick={() => {setIsNotNewGame(false);
+            setUserChoice("First Turn"); setDisabledButton([false, false, false]);}}>New Game</button>
+        </div>
+        <p>{paragraphText}</p>
+        <p id="thePar">This game is in-between versions. Check out Version 
+          One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
+          Here</a>.</p>
+        <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
+        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/23/21.</footer>
       </div>
     </main>
   );
