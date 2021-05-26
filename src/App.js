@@ -240,11 +240,12 @@ function App()
           <button onClick={() => {setIsNotNewGame(false);
             setUserChoice("First Turn"); setDisabledButton([false, false, false]);}}>New Game</button>
         </div>
-        <p id="thePar">This game is in-between versions. Check out Version 
-          One <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
-          Here</a>.</p>
+        <p id="thePar">Version2 is done! If you are a software developer who wants to check out Version1,
+          you can 
+          download <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
+          This</a> and open it in Visual Studio Code.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/24/21.</footer>
+        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/25/21.</footer>
       </div>
     </main>
   );
