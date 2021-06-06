@@ -22,15 +22,15 @@ code {
 
 main {
   background-color: wheat;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 #whereIsTheOtherDiv {
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
   padding-top: 10px;
   padding-bottom: 330px;
   background-color: saddlebrown;
@@ -104,4 +104,18 @@ footer {
   text-align: center;
   font-style: italic;
   font-size: 80%;
+}
+
+@media only screen and (max-width: 1024px) {
+  main {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  #whereIsTheOtherDiv {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

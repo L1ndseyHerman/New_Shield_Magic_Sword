@@ -240,10 +240,12 @@ function App()
           <button onClick={() => {setIsNotNewGame(false);
             setUserChoice("First Turn"); setDisabledButton([false, false, false]);}}>New Game</button>
         </div>
-        <p id="thePar">Version2 is done! If you are a software developer who wants to check out Version1,
-          you can 
-          download <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
-          This</a> and open it in Visual Studio Code.</p>
+        <p id="thePar">Starting Version 2.1, which will be CSS changes and maybe Unit Tests,
+          not gameplay changes. If you are a software developer who wants to look at 
+          previous versions, you can go to
+          my <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/">
+          GitHub</a>, change the branch from &quot;master&quot; to the branch you are looking for,
+          and run the code in Visual Studio Code.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
         <footer>This is a React JS Progressive Web App. Updated 06/05/21.</footer>
       </div>
