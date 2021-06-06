@@ -245,7 +245,7 @@ function App()
           download <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/tree/Version-1-Branch">
           This</a> and open it in Visual Studio Code.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-        <footer id="theFooter">This is a React JS Progressive Web App. Updated 05/25/21.</footer>
+        <footer>This is a React JS Progressive Web App. Updated 06/05/21.</footer>
       </div>
     </main>
   );
