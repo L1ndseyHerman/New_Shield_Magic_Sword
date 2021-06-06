@@ -244,7 +244,7 @@ function App()
           not gameplay changes. If you are a software developer who wants to look at 
           previous versions, you can go to
           my <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/">
-          GitHub</a>, change the branch from &quot;master&quot; to the branch you are looking for,
+          GitHub</a>, change the branch from &quot;master&quot; to the version you are looking for,
           and run the code in Visual Studio Code.</p>
         <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
         <footer>This is a React JS Progressive Web App. Updated 06/05/21.</footer>
