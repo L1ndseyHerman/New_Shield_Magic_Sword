@@ -21,7 +21,8 @@ code {
 */
 
 main {
-  background-color: wheat;
+  /*background-color: wheat;*/
+  background-image: url(MeanderBorder40px.png);
   padding-bottom: 40px;
   padding-top: 40px;
 }
@@ -109,6 +110,8 @@ footer {
 
 @media only screen and (max-width: 1024px) {
   main {
+    background-image: none;
+    background-color: wheat;
     padding-bottom: 10px;
     padding-top: 10px;
   }
