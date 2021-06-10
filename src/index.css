@@ -118,8 +118,11 @@ footer {
   #whereIsTheOtherDiv {
     margin-left: 10px;
     margin-right: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    /*padding-left: 10px;
+    padding-right: 10px;*/
+    /* Will this fix the phone label issue? */
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   #buttonsAndDescriptionsDiv {
@@ -132,5 +135,11 @@ footer {
 
   #healthAndTurnInfoDiv {
     width: 300px;
+  }
+
+  /* Will this fix the phone label issue? */
+  p {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
