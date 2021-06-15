@@ -233,7 +233,7 @@ function App()
           <p id="playerOneHealth">Player1 health: {playerOneHealth}</p>
           <p id="computerHealth">Computer health: {computerHealth}</p>
         </div>
-        <br/>
+        <br/> 
         <br/>
         <p>{paragraphText}</p>
         <div id="newGameDiv">
