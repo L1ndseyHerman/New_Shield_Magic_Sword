@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import BottomNotes from './BottomNotes';
 import NewGameButton from './NewGameButton';
+import ButtonWithExplanation from './ButtonWithExplanation';
  
 function makeComputerChoice()
 {
@@ -228,9 +229,7 @@ function App()
       <div id="whereIsTheOtherDiv">
         <h1>Shield-Magic-Sword</h1>
         <div id="buttonsAndDescriptionsDiv">
-          <button id="shield" disabled={disabledButtons[0]} onClick={() => {setUserChoice("Shield");
-            setDisabledButton([true, false, false]); setIsNotNewGame(true);}}>Shield</button>
-          <label>Blocks two physical damage.</label>
+          <ButtonWithExplanation isDisabled={disabledButtons[0]} callback={startNewGame} />
           <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
             setDisabledButton([false, true, false]); setIsNotNewGame(true);}}>Magic</button>
           <label>Deals one magic damage.</label>
