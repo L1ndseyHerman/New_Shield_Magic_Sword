@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import BottomNotes from './BottomNotes';
+import NewGameButton from './NewGameButton';
  
 function makeComputerChoice()
 {
@@ -214,6 +215,13 @@ function App()
     localStorage.setItem("lastComputerChoice", computerChoice);
   })
 
+  //  New for NewGameButton.js callback:
+  const startNewGame = (newGameSettings) => {
+    setIsNotNewGame(newGameSettings.isNotNewGame);
+    setUserChoice(newGameSettings.userChoice);
+    setDisabledButton(newGameSettings.disabledButton);
+  }
+
 
   return (
     <main>   
@@ -237,10 +245,7 @@ function App()
         <br/>
         <br/>
         <p>{paragraphText}</p>
-        <div id="newGameDiv">
-          <button onClick={() => {setIsNotNewGame(false);
-            setUserChoice("First Turn"); setDisabledButton([false, false, false]);}}>New Game</button>
-        </div>
+        <NewGameButton callback={startNewGame} />
         <BottomNotes />
       </div>
     </main>
