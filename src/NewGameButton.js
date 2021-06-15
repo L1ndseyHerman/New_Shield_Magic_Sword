@@ -1,3 +1,4 @@
+import './NewGameButton.css';
 function NewGameButton(props)
 {
     const newGameButtonPressed = () => {
