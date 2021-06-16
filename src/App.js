@@ -171,7 +171,7 @@ function checkWinLooseTie(playerOneHealth, computerHealth)
 function App() 
 {
   const [userChoice, setUserChoice] = useState("First Turn");
-  const [disabledButtons, setDisabledButton] = useState([false, false, false]);
+  const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
   var paragraphText = "";
   var playerOneHealth = 10;
   var computerHealth = 10;
@@ -219,7 +219,7 @@ function App()
   const setUseStates = (newGameSettings) => {
     setIsNotNewGame(newGameSettings.isNotNewGame);
     setUserChoice(newGameSettings.userChoice);
-    setDisabledButton(newGameSettings.disabledButton);
+    setDisabledButtons(newGameSettings.disabledButtons);
   }
 
 
@@ -228,13 +228,18 @@ function App()
       <div id="whereIsTheOtherDiv">
         <h1>Shield-Magic-Sword</h1>
         <div id="buttonsAndDescriptionsDiv">
-          <ButtonWithExplanation isDisabled={disabledButtons[0]} callback={setUseStates} />
-          <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
-            setDisabledButton([false, true, false]); setIsNotNewGame(true);}}>Magic</button>
-          <label>Deals one magic damage.</label>
-          <button id="sword" disabled={disabledButtons[2]} onClick={() => {setUserChoice("Sword");
-            setDisabledButton([false, false, true]); setIsNotNewGame(true);}}>Sword</button>
-          <label>Deals two physical damage.</label>
+          <ButtonWithExplanation isDisabled={disabledButtons[0]} 
+            disabledButtonArray={disabledButtons} buttonNumber="0"
+            explanation="Blocks two physical damage." buttonText="Shield" 
+            buttonColor="darkolivegreen" callback={setUseStates} />
+          <ButtonWithExplanation isDisabled={disabledButtons[1]} 
+            disabledButtonArray={disabledButtons} buttonNumber="1"
+            explanation="Deals one magic damage." buttonText="Magic" 
+            buttonColor="royalblue" callback={setUseStates} />
+          <ButtonWithExplanation isDisabled={disabledButtons[2]} 
+            disabledButtonArray={disabledButtons} buttonNumber="2"
+            explanation="Deals two physical damage." buttonText="Sword" 
+            buttonColor="firebrick" callback={setUseStates} />
         </div>
         <div id="healthAndTurnInfoDiv">
           <p id="playerOneHealth">Player1 health: {playerOneHealth}</p>

@@ -3,7 +3,7 @@ function NewGameButton(props)
 {
     const newGameButtonPressed = () => {
        props.callback({isNotNewGame: false, userChoice: "First Turn", 
-       disabledButton:[false, false, false]}); 
+       disabledButtons:[false, false, false]}); 
     }
 
     return(
