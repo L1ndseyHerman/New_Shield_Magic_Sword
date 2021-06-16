@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BottomNotes from './BottomNotes';
 import NewGameButton from './NewGameButton';
 import ButtonWithExplanation from './ButtonWithExplanation';
-import CenteredDiv from './CenteredDiv';
+import PlayerInfo from './PlayerInfo';
  
 function makeComputerChoice()
 {
@@ -243,8 +243,10 @@ function App()
             buttonColor="firebrick" callback={setUseStates} />
         </div>
         <div id="healthAndTurnInfoDiv">
-          <p id="playerOneHealth">Player1 health: {playerOneHealth}</p>
-          <p id="computerHealth">Computer health: {computerHealth}</p>
+          <PlayerInfo constantText="Player1 health: " changingNumber={playerOneHealth} 
+            floatDirection="left" />
+          <PlayerInfo constantText="Computer health: " changingNumber={computerHealth} 
+            floatDirection="right" />
         </div>
         <br/>
         <br/>

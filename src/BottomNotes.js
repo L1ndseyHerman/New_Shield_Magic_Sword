@@ -13,7 +13,7 @@ function BottomNotes()
                 GitHub</a>, change the branch from &quot;master&quot; to the version you are looking for,
                 and run the code in VS Code.</p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 06/15/21.</footer>
+            <footer>This is a React JS Progressive Web App. Updated 06/16/21.</footer>
         </div>
     );
 }

@@ -65,19 +65,9 @@ label {
   width: 700px;
 }
 
-#playerOneHealth {
-  float: left;
-}
-
-#computerHealth {
-  float: right;
-}
-
 p {
   text-align: center;
 }
-
-/* #NewGameDiv was here */
 
 a {
   color: black;
