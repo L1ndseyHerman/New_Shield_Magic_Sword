@@ -1,4 +1,5 @@
 import styles from './NewGameButton.module.css';
+
 function NewGameButton(props)
 {
     const newGameButtonPressed = () => {
@@ -7,7 +8,7 @@ function NewGameButton(props)
     }
 
     return(
-        <div id={styles.newGameDiv}>
+        <div className={styles.newGameDiv}>
             <button onClick={() => {newGameButtonPressed()}}>New Game</button>
         </div>
     );

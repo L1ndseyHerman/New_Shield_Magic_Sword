@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BottomNotes from './BottomNotes';
 import NewGameButton from './NewGameButton';
 import ButtonWithExplanation from './ButtonWithExplanation';
+import CenteredDiv from './CenteredDiv';
  
 function makeComputerChoice()
 {
@@ -248,7 +249,9 @@ function App()
         <br/>
         <br/>
         <p>{paragraphText}</p>
-        <NewGameButton callback={setUseStates} />
+        <div>
+          <NewGameButton callback={setUseStates} />
+        </div>
         <BottomNotes />
       </div>
     </main>

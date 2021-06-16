@@ -54,18 +54,6 @@ button {
   background-color: wheat;
 }
 
-#shield {
-  background-color: darkolivegreen;
-}
-
-#magic {
-  background-color: royalblue;
-}
-
-#sword {
-  background-color: firebrick;
-}
-
 label {
   padding-left: 10px;
   padding-right: 40px;
@@ -128,3 +116,19 @@ footer {
     width: 320px;
   }
 }
+
+/*
+Everything below is just colors:
+
+#shield {
+  background-color: darkolivegreen;
+}
+
+#magic {
+  background-color: royalblue;
+}
+
+#sword {
+  background-color: firebrick;
+}
+*/
