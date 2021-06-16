@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import BottomNotes from './BottomNotes';
 import NewGameButton from './NewGameButton';
 import ButtonWithExplanation from './ButtonWithExplanation';
@@ -217,7 +216,7 @@ function App()
   })
 
   //  New for NewGameButton.js callback:
-  const startNewGame = (newGameSettings) => {
+  const setUseStates = (newGameSettings) => {
     setIsNotNewGame(newGameSettings.isNotNewGame);
     setUserChoice(newGameSettings.userChoice);
     setDisabledButton(newGameSettings.disabledButton);
@@ -229,7 +228,7 @@ function App()
       <div id="whereIsTheOtherDiv">
         <h1>Shield-Magic-Sword</h1>
         <div id="buttonsAndDescriptionsDiv">
-          <ButtonWithExplanation isDisabled={disabledButtons[0]} callback={startNewGame} />
+          <ButtonWithExplanation isDisabled={disabledButtons[0]} callback={setUseStates} />
           <button id="magic" disabled={disabledButtons[1]} onClick={() => {setUserChoice("Magic");
             setDisabledButton([false, true, false]); setIsNotNewGame(true);}}>Magic</button>
           <label>Deals one magic damage.</label>
@@ -244,7 +243,7 @@ function App()
         <br/>
         <br/>
         <p>{paragraphText}</p>
-        <NewGameButton callback={startNewGame} />
+        <NewGameButton callback={setUseStates} />
         <BottomNotes />
       </div>
     </main>

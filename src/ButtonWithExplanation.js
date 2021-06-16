@@ -1,3 +1,5 @@
+import styles from './ButtonWithExplanation.module.css';
+
 function ButtonWithExplanation(props)
 {
     const buttonPressed = () => {
@@ -6,7 +8,7 @@ function ButtonWithExplanation(props)
     }
 
     return(
-        <div>
+        <div className={styles.buttonWithExplanationDiv}>
             <button id="shield" disabled={props.isDisabled} 
                 onClick={() => {buttonPressed()}}>Shield</button>
             <label>Blocks two physical damage.</label>
