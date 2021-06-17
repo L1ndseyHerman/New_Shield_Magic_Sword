@@ -175,6 +175,7 @@ function App()
   var playerOneHealth = 10;
   var computerHealth = 10;
   const [isNotNewGame, setIsNotNewGame] = useState(true);
+  var buttonsAndExplanationsDivDisplay = "block";
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
@@ -184,7 +185,8 @@ function App()
   }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
-  {
+  {   
+    buttonsAndExplanationsDivDisplay = "none";
     turnResultsText = "Try playing a new game.";
   }
   else 
@@ -226,7 +228,7 @@ function App()
     <main>   
       <div id="outermostDiv">
         <h1>Shield-Magic-Sword</h1>
-        <div id="buttonsAndExplanationsDiv">
+        <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
           <ButtonWithExplanation buttonColor="darkolivegreen"
             buttonText="Shield" explanation="Blocks two physical damage."
             buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
