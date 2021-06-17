@@ -8,7 +8,7 @@ function NewGameButton(props)
     }
 
     return(
-        <div className={styles.newGameDiv}>
+        <div className={styles.centeredDiv}>
             <button onClick={() => {newGameButtonPressed()}}>New Game</button>
         </div>
     );

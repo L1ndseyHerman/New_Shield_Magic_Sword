@@ -27,7 +27,7 @@ main {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-#whereIsTheOtherDiv {
+#outermostDiv {
   margin-left: 40px;
   margin-right: 40px;
   padding-left: 40px;
@@ -42,7 +42,7 @@ h1 {
   text-align: center;
 }
 
-#buttonsAndDescriptionsDiv {
+#buttonsAndExplanationsDiv {
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
@@ -54,12 +54,7 @@ button {
   background-color: wheat;
 }
 
-label {
-  padding-left: 10px;
-  padding-right: 40px;
-}
-
-#healthAndTurnInfoDiv {
+#healthDiv {
   margin-left: auto;
   margin-right: auto;
   width: 700px;
@@ -86,39 +81,18 @@ footer {
     padding-top: 10px;
   }
 
-  #whereIsTheOtherDiv {
+  #outermostDiv {
     margin-left: 10px;
     margin-right: 10px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  #buttonsAndDescriptionsDiv {
+  #buttonsAndExplanationsDiv {
     width: 320px;
   }
 
-  label {
-    padding-right: 0px;
-    padding-left: 5px;
-  }
-
-  #healthAndTurnInfoDiv {
+  #healthDiv {
     width: 320px;
   }
 }
-
-/*
-Everything below is just colors:
-
-#shield {
-  background-color: darkolivegreen;
-}
-
-#magic {
-  background-color: royalblue;
-}
-
-#sword {
-  background-color: firebrick;
-}
-*/

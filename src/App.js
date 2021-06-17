@@ -53,9 +53,6 @@ function makeComputerChoice()
   }
 }
 
-//  This function repeats the same checks as the one above it! 
-//  ToDo: Make a class or something so that these checks are only needed once.
-
 //  The number this returns is how much health playerOne looses this turn
 function checkPlayerOneHealthLost(userChoice, computerChoice)
 {
@@ -101,7 +98,8 @@ function checkPlayerOneHealthLost(userChoice, computerChoice)
   return "This is an error. Click a button to start a game.";
 }
 
-
+//  This function repeats the same checks as the one above it! 
+//  ToDo: Make a class or something so that these checks are only needed once.
 function checkComputerHealthLost(userChoice, computerChoice)
 {
   if (userChoice === "Shield" && computerChoice === "Shield")
@@ -173,7 +171,7 @@ function App()
 {
   const [userChoice, setUserChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
-  var paragraphText = "";
+  var turnResultsText = "";
   var playerOneHealth = 10;
   var computerHealth = 10;
   const [isNotNewGame, setIsNotNewGame] = useState(true);
@@ -187,7 +185,7 @@ function App()
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {
-    paragraphText = "Try playing a new game.";
+    turnResultsText = "Try playing a new game.";
   }
   else 
   {
@@ -203,7 +201,7 @@ function App()
 
       var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
-      paragraphText = paragraphText + "Player1 chose " + userChoice +
+      turnResultsText = turnResultsText + "Player1 chose " + userChoice +
       " and Computer chose " + computerChoice + ". " + winLooseTieText;
     }
   }
@@ -216,7 +214,7 @@ function App()
     localStorage.setItem("lastComputerChoice", computerChoice);
   })
 
-  //  New for NewGameButton.js callback:
+  //  For button callbacks:
   const setUseStates = (newGameSettings) => {
     setIsNotNewGame(newGameSettings.isNotNewGame);
     setUserChoice(newGameSettings.userChoice);
@@ -226,23 +224,23 @@ function App()
 
   return (
     <main>   
-      <div id="whereIsTheOtherDiv">
+      <div id="outermostDiv">
         <h1>Shield-Magic-Sword</h1>
-        <div id="buttonsAndDescriptionsDiv">
-          <ButtonWithExplanation isDisabled={disabledButtons[0]} 
-            disabledButtonArray={disabledButtons} buttonNumber="0"
-            explanation="Blocks two physical damage." buttonText="Shield" 
-            buttonColor="darkolivegreen" callback={setUseStates} />
-          <ButtonWithExplanation isDisabled={disabledButtons[1]} 
-            disabledButtonArray={disabledButtons} buttonNumber="1"
-            explanation="Deals one magic damage." buttonText="Magic" 
-            buttonColor="royalblue" callback={setUseStates} />
-          <ButtonWithExplanation isDisabled={disabledButtons[2]} 
-            disabledButtonArray={disabledButtons} buttonNumber="2"
-            explanation="Deals two physical damage." buttonText="Sword" 
-            buttonColor="firebrick" callback={setUseStates} />
+        <div id="buttonsAndExplanationsDiv">
+          <ButtonWithExplanation buttonColor="darkolivegreen"
+            buttonText="Shield" explanation="Blocks two physical damage."
+            buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
+            callback={setUseStates} />
+          <ButtonWithExplanation buttonColor="royalblue"
+            buttonText="Magic" explanation="Deals one magic damage."
+            buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
+            callback={setUseStates} />
+          <ButtonWithExplanation buttonColor="firebrick"
+            buttonText="Sword" explanation="Deals two physical damage."
+            buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
+            callback={setUseStates} />
         </div>
-        <div id="healthAndTurnInfoDiv">
+        <div id="healthDiv">
           <PlayerInfo constantText="Player1 health: " changingNumber={playerOneHealth} 
             floatDirection="left" />
           <PlayerInfo constantText="Computer health: " changingNumber={computerHealth} 
@@ -250,10 +248,8 @@ function App()
         </div>
         <br/>
         <br/>
-        <p>{paragraphText}</p>
-        <div>
-          <NewGameButton callback={setUseStates} />
-        </div>
+        <p>{turnResultsText}</p>
+        <NewGameButton callback={setUseStates} />
         <BottomNotes />
       </div>
     </main>

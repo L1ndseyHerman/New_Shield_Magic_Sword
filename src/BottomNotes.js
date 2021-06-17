@@ -1,5 +1,10 @@
 function BottomNotes()
 {
+    //  For some reason, this always gets the current time, maybe because of how React works?
+    //var lastModified = document.lastModified;
+    //  Doesn't do anything:
+    //var lastModified = File.lastModified;
+
     return(
         <div>
             <p>
@@ -13,7 +18,7 @@ function BottomNotes()
                 GitHub</a>, change the branch from &quot;master&quot; to the version you are looking for,
                 and run the code in VS Code.</p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 06/16/21.</footer>
+            <footer>This is a React JS Progressive Web App. Updated 06/16/21</footer>
         </div>
     );
 }
