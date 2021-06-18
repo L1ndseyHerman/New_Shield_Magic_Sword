@@ -184,13 +184,7 @@ function App()
     playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
     computerHealth = Number(localStorage.getItem("computerHealth") || 10);
   }
-  if ((playerOneHealth <= 0) || (computerHealth <= 0))
-  {   
-    buttonsAndExplanationsDivDisplay = "none";
-    turnResultsText = "Try playing a new game.";
-  }
-  else 
-  {
+
     if (userChoice !== "First Turn")
     {
       var computerChoice = makeComputerChoice();
@@ -206,7 +200,7 @@ function App()
       turnResultsText = turnResultsText + "Player1 chose " + userChoice +
       " and Computer chose " + computerChoice + ". " + winLooseTieText;
     }
-  }
+
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {   
