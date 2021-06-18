@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import TopInstructions from './TopInstructions';
 import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import NewGameButton from './NewGameButton';
@@ -180,6 +181,7 @@ function App()
     <main>   
       <div id="outermostDiv">
         <h1>Shield-Magic-Sword</h1>
+        <TopInstructions />
         <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
           <ButtonWithExplanation buttonColor="darkolivegreen"
             buttonText="Shield" explanation="Blocks two physical damage."
