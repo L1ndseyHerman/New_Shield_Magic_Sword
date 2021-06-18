@@ -176,6 +176,7 @@ function App()
   var computerHealth = 10;
   const [isNotNewGame, setIsNotNewGame] = useState(true);
   var buttonsAndExplanationsDivDisplay = "block";
+  var newGameButtonDisplay = "none";
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
@@ -183,7 +184,6 @@ function App()
     playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
     computerHealth = Number(localStorage.getItem("computerHealth") || 10);
   }
-
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {   
     buttonsAndExplanationsDivDisplay = "none";
@@ -208,6 +208,12 @@ function App()
     }
   }
 
+  if ((playerOneHealth <= 0) || (computerHealth <= 0))
+  {   
+    buttonsAndExplanationsDivDisplay = "none";
+    newGameButtonDisplay = "block";
+  }
+
   //  The game appears to do double the damage wo this useEffect(), although more testing is
   //  needed....
   useEffect(() => {
@@ -220,7 +226,7 @@ function App()
   const setUseStates = (newGameSettings) => {
     setIsNotNewGame(newGameSettings.isNotNewGame);
     setUserChoice(newGameSettings.userChoice);
-    setDisabledButtons(newGameSettings.disabledButtons);
+    setDisabledButtons(newGameSettings.disabledButtons); 
   }
 
 
@@ -251,7 +257,8 @@ function App()
         <br/>
         <br/>
         <p>{turnResultsText}</p>
-        <NewGameButton callback={setUseStates} />
+        <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
+          callback={setUseStates} />
         <BottomNotes />
       </div>
     </main>
