@@ -53,97 +53,50 @@ function makeComputerChoice()
   }
 }
 
-//  The number this returns is how much health playerOne looses this turn
-function checkPlayerOneHealthLost(userChoice, computerChoice)
+//  Combined checkPlayerOneHealthLost() and checkComputerHealthLost() into one function :)
+function checkThisPlayersHealthLost(thisPlayersChoice, theOtherPlayersChoice)
 {
-  if (userChoice === "Shield" && computerChoice === "Shield")
+  if (thisPlayersChoice === "Shield" && theOtherPlayersChoice === "Shield")
   {
     return 0;
   }
-  else if (userChoice === "Shield" && computerChoice === "Magic")
+  else if (thisPlayersChoice === "Shield" && theOtherPlayersChoice === "Magic")
   {
     return 1;
   }
-  else if (userChoice === "Shield" && computerChoice === "Sword")
+  else if (thisPlayersChoice === "Shield" && theOtherPlayersChoice === "Sword")
   {
     return 0;
   }
 
-  else if (userChoice === "Magic" && computerChoice === "Shield")
+  else if (thisPlayersChoice === "Magic" && theOtherPlayersChoice === "Shield")
   {
     return 0;
   }
-  else if (userChoice === "Magic" && computerChoice === "Magic")
+  else if (thisPlayersChoice === "Magic" && theOtherPlayersChoice === "Magic")
   {
     return 1;
   }
-  else if (userChoice === "Magic" && computerChoice === "Sword")
+  else if (thisPlayersChoice === "Magic" && theOtherPlayersChoice === "Sword")
   {
     return 2;
   }
 
-  else if (userChoice === "Sword" && computerChoice === "Shield")
+  else if (thisPlayersChoice === "Sword" && theOtherPlayersChoice === "Shield")
   {
     return 0;
   }
-  else if (userChoice === "Sword" && computerChoice === "Magic")
+  else if (thisPlayersChoice === "Sword" && theOtherPlayersChoice === "Magic")
   {
     return 1;
   }
-  else if (userChoice === "Sword" && computerChoice === "Sword")
+  else if (thisPlayersChoice === "Sword" && theOtherPlayersChoice === "Sword")
   {
     return 2;
   }
 
   return "This is an error. Click a button to start a game.";
 }
-
-//  This function repeats the same checks as the one above it! 
-//  ToDo: Make a class or something so that these checks are only needed once.
-function checkComputerHealthLost(userChoice, computerChoice)
-{
-  if (userChoice === "Shield" && computerChoice === "Shield")
-  {
-    return 0;
-  }
-  else if (userChoice === "Shield" && computerChoice === "Magic")
-  {
-    return 0;
-  }
-  else if (userChoice === "Shield" && computerChoice === "Sword")
-  {
-    return 0;
-  }
-
-  else if (userChoice === "Magic" && computerChoice === "Shield")
-  {
-    return 1;
-  }
-  else if (userChoice === "Magic" && computerChoice === "Magic")
-  {
-    return 1;
-  }
-  else if (userChoice === "Magic" && computerChoice === "Sword")
-  {
-    return 1;
-  }
-
-  else if (userChoice === "Sword" && computerChoice === "Shield")
-  {
-    return 0;
-  }
-  else if (userChoice === "Sword" && computerChoice === "Magic")
-  {
-    return 2;
-  }
-  else if (userChoice === "Sword" && computerChoice === "Sword")
-  {
-    return 2;
-  }
-
-  return "This is an error. Click a button to start a game.";
-}
-
 
 function checkWinLooseTie(playerOneHealth, computerHealth)
 {
@@ -159,7 +112,7 @@ function checkWinLooseTie(playerOneHealth, computerHealth)
   {
     return "Player1 wins!";
   }
-  //  Whoops, make it nothing if no Game Over yet:
+  //  Make it nothing if no Game Over yet:
   else 
   {
     return "";
@@ -169,7 +122,7 @@ function checkWinLooseTie(playerOneHealth, computerHealth)
 
 function App() 
 {
-  const [userChoice, setUserChoice] = useState("First Turn");
+  const [playerOneChoice, setPlayerOneChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
   var turnResultsText = "";
   var playerOneHealth = 10;
@@ -185,22 +138,21 @@ function App()
     computerHealth = Number(localStorage.getItem("computerHealth") || 10);
   }
 
-    if (userChoice !== "First Turn")
-    {
-      var computerChoice = makeComputerChoice();
+  if (playerOneChoice !== "First Turn")
+  {
+    var computerChoice = makeComputerChoice();
 
-      const playerOneHealthLost = checkPlayerOneHealthLost(userChoice, computerChoice);
-      playerOneHealth = playerOneHealth - playerOneHealthLost;
+    const playerOneHealthLost = checkThisPlayersHealthLost(playerOneChoice, computerChoice);
+    playerOneHealth = playerOneHealth - playerOneHealthLost;
 
-      const computerHealthLost = checkComputerHealthLost(userChoice, computerChoice);
-      computerHealth = computerHealth - computerHealthLost;
+    const computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
+    computerHealth = computerHealth - computerHealthLost;
 
-      var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
+    var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
-      turnResultsText = turnResultsText + "Player1 chose " + userChoice +
-      " and Computer chose " + computerChoice + ". " + winLooseTieText;
-    }
-
+    turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
+    " and Computer chose " + computerChoice + ". " + winLooseTieText;
+  }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
   {   
@@ -219,7 +171,7 @@ function App()
   //  For button callbacks:
   const setUseStates = (newGameSettings) => {
     setIsNotNewGame(newGameSettings.isNotNewGame);
-    setUserChoice(newGameSettings.userChoice);
+    setPlayerOneChoice(newGameSettings.playerOneChoice);
     setDisabledButtons(newGameSettings.disabledButtons); 
   }
 

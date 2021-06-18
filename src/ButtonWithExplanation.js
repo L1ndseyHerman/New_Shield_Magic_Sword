@@ -5,9 +5,10 @@ function ButtonWithExplanation(props)
     var theDisabledButtons = [false, false, false];
     var index;
     for (index = 0; index < theDisabledButtons.length; index++) {
+        
         //  This will compare "0" to 0! Not sure why ESLint is giving "==" a warning, 
         //  ppl use that a lot in JavaScript, right?
-        
+
         // eslint-disable-next-line 
         if (index == props.buttonNumber)
         {
@@ -20,7 +21,7 @@ function ButtonWithExplanation(props)
     }
 
     const buttonPressed = () => {
-       props.callback({isNotNewGame: true, userChoice: props.buttonText, 
+       props.callback({isNotNewGame: true, playerOneChoice: props.buttonText, 
        disabledButtons: theDisabledButtons}); 
     }
 

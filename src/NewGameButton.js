@@ -3,7 +3,7 @@ import styles from './NewGameButton.module.css';
 function NewGameButton(props)
 {
     const newGameButtonPressed = () => {
-       props.callback({isNotNewGame: false, userChoice: "First Turn", 
+       props.callback({isNotNewGame: false, playerOneChoice: "First Turn", 
        disabledButtons:[false, false, false]}); 
     }
 
