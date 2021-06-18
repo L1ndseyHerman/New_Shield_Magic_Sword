@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import BottomNotes from './BottomNotes';
-import NewGameButton from './NewGameButton';
+
 import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
+import NewGameButton from './NewGameButton';
+import BottomNotes from './BottomNotes';
  
 function makeComputerChoice()
 {
@@ -53,7 +54,6 @@ function makeComputerChoice()
   }
 }
 
-//  Combined checkPlayerOneHealthLost() and checkComputerHealthLost() into one function :)
 function checkThisPlayersHealthLost(thisPlayersChoice, theOtherPlayersChoice)
 {
   if (thisPlayersChoice === "Shield" && theOtherPlayersChoice === "Shield")
