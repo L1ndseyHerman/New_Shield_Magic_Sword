@@ -27,7 +27,7 @@ function ButtonWithExplanation(props)
 
     return(
         <div className={styles.buttonWithExplanationDiv}>
-            <div className={styles.centeredDiv}>
+            <div class="centeredDivPerfectButtonSize">
                 <button style={{background: props.buttonColor}} disabled={props.isDisabled} 
                     onClick={() => {buttonPressed()}}>{props.buttonText}</button>
             </div>

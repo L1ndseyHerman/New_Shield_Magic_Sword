@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
+import TopTextLocalStorage from './TopTextLocalStorage';
+import BeginGameButton from './BeginGameButton';
+import BottomNotes from './BottomNotes';
+
 import TopInstructions from './TopInstructions';
 import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import NewGameButton from './NewGameButton';
-import BottomNotes from './BottomNotes';
+
  
 function makeComputerChoice()
 {
   var computerNumber = Math.floor(Math.random() * 2); 
-  var lastComputerChoice = String(localStorage.getItem("lastComputerChoice") || "An Error");
+  var lastComputerChoice = String(sessionStorage.getItem("lastComputerChoice") || "An Error");
+  
 
   if ((lastComputerChoice === "Shield") && (computerNumber === 0))
   {
@@ -131,12 +136,13 @@ function App()
   const [isNotNewGame, setIsNotNewGame] = useState(true);
   var buttonsAndExplanationsDivDisplay = "block";
   var newGameButtonDisplay = "none";
+  const [pressedNextScreenButton, setPressedNextScreenButton] = useState(false);
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
   {
-    playerOneHealth = Number(localStorage.getItem("playerOneHealth") || 10);
-    computerHealth = Number(localStorage.getItem("computerHealth") || 10);
+    playerOneHealth = Number(sessionStorage.getItem("playerOneHealth") || 10);
+    computerHealth = Number(sessionStorage.getItem("computerHealth") || 10);
   }
 
   if (playerOneChoice !== "First Turn")
@@ -164,9 +170,15 @@ function App()
   //  The game appears to do double the damage wo this useEffect(), although more testing is
   //  needed....
   useEffect(() => {
-    localStorage.setItem("playerOneHealth", playerOneHealth);
-    localStorage.setItem("computerHealth", computerHealth);
-    localStorage.setItem("lastComputerChoice", computerChoice);
+      //  Since there didn't use to be a choice, client may have previous localStorage data
+      //  that needs to be cleared.
+      localStorage.removeItem("playerOneHealth");
+      localStorage.removeItem("computerHealth");
+      localStorage.removeItem("lastComputerChoice");
+
+      sessionStorage.setItem("playerOneHealth", playerOneHealth);
+      sessionStorage.setItem("computerHealth", computerHealth);
+      sessionStorage.setItem("lastComputerChoice", computerChoice);
   })
 
   //  For button callbacks:
@@ -176,41 +188,62 @@ function App()
     setDisabledButtons(newGameSettings.disabledButtons); 
   }
 
+  const beginGameButtonPressed = (beginGameButtonSettings) => {
+    setPressedNextScreenButton(beginGameButtonSettings.pressedNextScreenButton);
+  }
 
-  return (
-    <main>   
-      <div id="outermostDiv">
-        <h1>Shield-Magic-Sword</h1>
-        <TopInstructions />
-        <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
-          <ButtonWithExplanation buttonColor="darkolivegreen"
-            buttonText="Shield" explanation="Blocks two physical damage."
-            buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
-            callback={setUseStates} />
-          <ButtonWithExplanation buttonColor="royalblue"
-            buttonText="Magic" explanation="Deals one magic damage."
-            buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
-            callback={setUseStates} />
-          <ButtonWithExplanation buttonColor="firebrick"
-            buttonText="Sword" explanation="Deals two physical damage."
-            buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
+  if (!pressedNextScreenButton) 
+  {
+    return (
+      <main>   
+        <div id="outermostDiv">
+          <h1>Shield-Magic-Sword</h1>
+          <TopTextLocalStorage />
+          <BeginGameButton callback={beginGameButtonPressed} />
+          <BottomNotes />
+        </div>
+      </main>
+    );
+  }
+
+  else
+  {
+    return (
+      <main>   
+        <div id="outermostDiv">
+          <h1>Shield-Magic-Sword</h1>
+          <TopInstructions />
+          <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
+            <ButtonWithExplanation buttonColor="darkolivegreen"
+              buttonText="Shield" explanation="Blocks two physical damage."
+              buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
+              callback={setUseStates} />
+            <ButtonWithExplanation buttonColor="royalblue"
+              buttonText="Magic" explanation="Deals one magic damage."
+              buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
+              callback={setUseStates} />
+            <ButtonWithExplanation buttonColor="firebrick"
+              buttonText="Sword" explanation="Deals two physical damage."
+              buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
+              callback={setUseStates} />
+          </div>
+          <div id="healthDiv">
+            <PlayerInfo constantText="Player1 health: " changingNumber={playerOneHealth} 
+              floatDirection="left" />
+            <PlayerInfo constantText="Computer health: " changingNumber={computerHealth} 
+              floatDirection="right" />
+          </div>
+          <br/>
+          <br/>
+          <p>{turnResultsText}</p>
+          <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
             callback={setUseStates} />
         </div>
-        <div id="healthDiv">
-          <PlayerInfo constantText="Player1 health: " changingNumber={playerOneHealth} 
-            floatDirection="left" />
-          <PlayerInfo constantText="Computer health: " changingNumber={computerHealth} 
-            floatDirection="right" />
-        </div>
-        <br/>
-        <br/>
-        <p>{turnResultsText}</p>
-        <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
-          callback={setUseStates} />
-        <BottomNotes />
-      </div>
-    </main>
-  );
+      </main>
+    );
+  }
+
+
 }
 
 export default App;

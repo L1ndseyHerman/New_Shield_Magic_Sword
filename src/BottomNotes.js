@@ -8,7 +8,11 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Version 2.2 is done! If you are a software developer who wants to look at 
+                Done with Version 2.3, which is adding a title screen of sorts, so you 
+                don&#39;t have to look at this giant wall of text while playing the game.
+            </p>
+            <p>
+                If you are a software developer who wants to look at 
                 previous versions, you can go to
                 my <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/">
                 GitHub</a>, change the branch from &quot;master&quot; to the version 
@@ -21,7 +25,7 @@ function BottomNotes()
                 so there will eventually be more than ten videos.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 06/18/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 06/22/21</footer>
         </div>
     );
 }

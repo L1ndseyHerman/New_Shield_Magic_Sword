@@ -1,4 +1,3 @@
-import styles from './NewGameButton.module.css';
 
 function NewGameButton(props)
 {
@@ -8,7 +7,7 @@ function NewGameButton(props)
     }
 
     return(
-        <div className={styles.centeredDiv} style={{display: props.newGameButtonDisplay}}>
+        <div class="centeredDivPerfectButtonSize" style={{display: props.newGameButtonDisplay}}>
             <button onClick={() => {newGameButtonPressed()}}>New Game</button>
         </div>
     );

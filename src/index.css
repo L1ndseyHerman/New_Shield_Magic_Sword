@@ -37,6 +37,12 @@ main {
   background-color: saddlebrown;
 }
 
+.centeredDivPerfectButtonSize {
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
   padding-bottom: 10px;
   text-align: center;
