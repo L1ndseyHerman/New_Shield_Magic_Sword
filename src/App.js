@@ -220,8 +220,16 @@ function App()
     return (
       <main>   
       <div id="outermostDiv">
-        <h1>Placeholder Text</h1>
-        <ChooseElementButton callback={chooseElementButtonPressed} />
+        <h1>Element Selection Screen</h1>
+        <p>This screen is in-progress, just choose whatever button for now.</p>
+        <div id="buttonsAndExplanationsDiv">
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton callback={chooseElementButtonPressed} />
+        </div>
       </div>
     </main>
     );

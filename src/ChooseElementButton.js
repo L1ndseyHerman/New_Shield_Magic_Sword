@@ -1,3 +1,5 @@
+import styles from './ChooseElementButton.module.css';
+
 function ChooseElementButton(props)
 {
     const chooseElementButtonPressed = () => {
@@ -5,8 +7,11 @@ function ChooseElementButton(props)
     }
 
     return(
-        <div class="centeredDivPerfectButtonSize">
-            <button onClick={() => {chooseElementButtonPressed()}}>Next Screen</button>
+        <div className={styles.elementButtonDiv}>
+            <div class="centeredDivPerfectButtonSize">
+                <button onClick={() => {chooseElementButtonPressed()}}>Next Screen</button>
+            </div>
+            <p>Placeholder Text</p>
         </div>
     );
 }
