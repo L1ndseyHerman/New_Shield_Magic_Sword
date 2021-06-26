@@ -8,8 +8,8 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Done with Version 2.3, which is adding a title screen of sorts, so you 
-                don&#39;t have to look at this giant wall of text while playing the game.
+                Starting Version3, which will involve elements like fire magic,
+                water magic, etc.
             </p>
             <p>
                 If you are a software developer who wants to look at 
@@ -18,14 +18,13 @@ function BottomNotes()
                 GitHub</a>, change the branch from &quot;master&quot; to the version 
                 you are looking for, then pull the code and run it in VS Code.
             </p><p>    
-                I'd also like to shout out Tech With Tim's 
-                first ten ReactJS videos on YouTube, the first of which
+                I'd also like to shout out Tech With Tim's series of twelve
+                React For Beginners videos on YouTube, the first of which
                 is <a href="https://www.youtube.com/watch?v=Ma6DRDIedVE&t=1s">Here</a>,  
-                for being a great ReactJS learning resource. Tim's series is in-progress,
-                so there will eventually be more than ten videos.
+                for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 06/22/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 06/26/21</footer>
         </div>
     );
 }

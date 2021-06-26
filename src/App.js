@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import TopTextLocalStorage from './TopTextLocalStorage';
 import BeginGameButton from './BeginGameButton';
 import BottomNotes from './BottomNotes';
+
+import ChooseElementButton from './ChooseElementButton';
 
 import TopInstructions from './TopInstructions';
 import ButtonWithExplanation from './ButtonWithExplanation';
@@ -136,7 +137,8 @@ function App()
   const [isNotNewGame, setIsNotNewGame] = useState(true);
   var buttonsAndExplanationsDivDisplay = "block";
   var newGameButtonDisplay = "none";
-  const [pressedNextScreenButton, setPressedNextScreenButton] = useState(false);
+  const [onElementSelectScreen, setOnElementSelectScreen] = useState(false);
+  const [onGameScreen, setOnGameScreen] = useState(false);
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
@@ -167,8 +169,6 @@ function App()
     newGameButtonDisplay = "block";
   }
 
-  //  The game appears to do double the damage wo this useEffect(), although more testing is
-  //  needed....
   useEffect(() => {
       //  Since there didn't use to be a choice, client may have previous localStorage data
       //  that needs to be cleared.
@@ -179,7 +179,10 @@ function App()
       sessionStorage.setItem("playerOneHealth", playerOneHealth);
       sessionStorage.setItem("computerHealth", computerHealth);
       sessionStorage.setItem("lastComputerChoice", computerChoice);
-  })
+
+      //  New! TechWithTim said this makes the useEffect() only run when the variables 
+      //  you put in this array change, instead of all the variables.
+  }, [computerChoice, computerHealth, playerOneHealth])
 
   //  For button callbacks:
   const setUseStates = (newGameSettings) => {
@@ -189,16 +192,22 @@ function App()
   }
 
   const beginGameButtonPressed = (beginGameButtonSettings) => {
-    setPressedNextScreenButton(beginGameButtonSettings.pressedNextScreenButton);
+    setOnElementSelectScreen(beginGameButtonSettings.pressedNextScreenButton);
   }
 
-  if (!pressedNextScreenButton) 
+  const chooseElementButtonPressed = (chooseElementButtonSettings) => {
+    setOnGameScreen(chooseElementButtonSettings.pressedNextScreenButton);
+  }
+
+  //  I'm just doing these statements in order, so the "if" is the first screen when 
+  //  the website loads/the browser refreshes, then the "else if" is the next "page", then the 
+  //  next "else if" is the next one, etc. 
+  if (!onElementSelectScreen) 
   {
     return (
       <main>   
         <div id="outermostDiv">
           <h1>Shield-Magic-Sword</h1>
-          <TopTextLocalStorage />
           <BeginGameButton callback={beginGameButtonPressed} />
           <BottomNotes />
         </div>
@@ -206,12 +215,24 @@ function App()
     );
   }
 
-  else
+  else if (onElementSelectScreen && !onGameScreen)
+  {
+    return (
+      <main>   
+      <div id="outermostDiv">
+        <h1>Placeholder Text</h1>
+        <ChooseElementButton callback={chooseElementButtonPressed} />
+      </div>
+    </main>
+    );
+  }
+
+  else if (onGameScreen)
   {
     return (
       <main>   
         <div id="outermostDiv">
-          <h1>Shield-Magic-Sword</h1>
+          <h1>Game Screen</h1>
           <TopInstructions />
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
             <ButtonWithExplanation buttonColor="darkolivegreen"
