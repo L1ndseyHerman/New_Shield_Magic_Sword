@@ -133,6 +133,39 @@ function checkThisPlayersHealthLost(thisPlayersChoice, theOtherPlayersChoice)
   return "This is an error. Click a button to start a game.";
 }
 
+function checkBonusElementDamage(thisPlayersElement, theOtherPlayersElement)
+{
+
+  if ((thisPlayersElement === "Fire") && (theOtherPlayersElement === "Earth"))
+  {
+    return 1;
+  }
+  else if ((thisPlayersElement === "Earth") && (theOtherPlayersElement === "Air"))
+  {
+    return 1;
+  }
+  else if ((thisPlayersElement === "Air") && (theOtherPlayersElement === "Water"))
+  {
+    return 1;
+  }
+  else if ((thisPlayersElement === "Water") && (theOtherPlayersElement === "Fire"))
+  {
+    return 1;
+  }
+  else if ((thisPlayersElement === "Light") && (theOtherPlayersElement === "Dark"))
+  {
+    return 1;
+  }
+  else if ((thisPlayersElement === "Dark") && (theOtherPlayersElement === "Light"))
+  {
+    return 1;
+  }
+  else 
+  {
+    return 0;
+  }
+}
+
 function checkWinLooseTie(playerOneHealth, computerHealth)
 {
   if ((playerOneHealth <= 0) && (computerHealth <= 0))
@@ -181,17 +214,39 @@ function App()
   {
     var computerChoice = makeComputerChoice();
 
-    const playerOneHealthLost = checkThisPlayersHealthLost(playerOneChoice, computerChoice);
-    playerOneHealth = playerOneHealth - playerOneHealthLost;
+    var playerOneHealthLost = checkThisPlayersHealthLost(playerOneChoice, computerChoice);
+    var computerElementalBonusDamage = 0;
+    if (computerChoice === "Magic")
+    {
+      computerElementalBonusDamage = checkBonusElementDamage(computerElement, playerOneElement);
+    }
+    playerOneHealth = playerOneHealth - playerOneHealthLost - computerElementalBonusDamage;
 
-    const computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
-    computerHealth = computerHealth - computerHealthLost;
+    var computerElementalBonusText = "";
+    if (computerElementalBonusDamage > 0)
+    {
+      computerElementalBonusText = " (+1 bonus elemental damage) ";
+    }
+
+    var computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
+    var playerOneElementalBonusDamage = 0;
+    if (playerOneChoice === "Magic")
+    {
+      playerOneElementalBonusDamage = checkBonusElementDamage(playerOneElement, computerElement);
+    }
+    computerHealth = computerHealth - computerHealthLost - playerOneElementalBonusDamage;
+
+    var playerOneElementalBonusText = "";
+    if (playerOneElementalBonusDamage > 0)
+    {
+      playerOneElementalBonusText = " (+1 bonus elemental damage) ";
+    }
 
     var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
     turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
-    " and Computer chose " + computerChoice + ". " + winLooseTieText + "Testing " + 
-    playerOneElement + computerElement;
+    playerOneElementalBonusText + " and Computer chose " + computerChoice +
+    computerElementalBonusText + ". " + winLooseTieText
   }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
@@ -255,8 +310,8 @@ function App()
       <div id="outermostDiv">
         <h1>Element Selection Screen</h1>
         <p>
-        This screen is in-progress, just choose whatever button for now.
-        They all just go to the next screen.
+          Your element choice affects gameplay now, so choose carefully. 
+          The computer will randomly choose an element.
         </p>
         <div id="buttonsAndExplanationsDiv">
           <ChooseElementButton buttonText="Fire" explanation="Earth"
@@ -309,6 +364,7 @@ function App()
               floatDirection="right" constantElementText="Computer element: "
               element={computerElement} />
           </div>
+          <br/>
           <br/>
           <br/>
           <br/>
