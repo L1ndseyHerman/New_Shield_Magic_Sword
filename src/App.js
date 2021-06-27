@@ -255,6 +255,14 @@ function App()
     newGameButtonDisplay = "block";
   }
 
+  //  This is so you can't refresh the page in the middle of a game to get a more favorable element.
+  //  No cheating, lol. If you go back to the elementSelectScreen, the score resets.
+  useEffect(() => {
+    sessionStorage.setItem("playerOneHealth", 10);
+    sessionStorage.setItem("computerHealth", 10);
+    sessionStorage.setItem("lastComputerChoice", "First Turn");
+  }, [onElementSelectScreen])
+
   useEffect(() => {
       //  Since there didn't use to be a choice, client may have previous localStorage data
       //  that needs to be cleared.
