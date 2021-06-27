@@ -299,7 +299,7 @@ function App()
   //  I'm just doing these statements in order, so the "if" is the first screen when 
   //  the website loads/the browser refreshes, then the "else if" is the next "page", then the 
   //  next "else if" is the next one, etc. 
-  if (!onElementSelectScreen) 
+  if (!onElementSelectScreen)
   {
     return (
       <main>   
