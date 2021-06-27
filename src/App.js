@@ -9,7 +9,7 @@ import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import NewGameButton from './NewGameButton';
 
-function chooseComputerElement()
+function chooseComputerElement() 
 {
   var computerElementNumber = Math.floor(Math.random() * 6);
 
