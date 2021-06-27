@@ -2,8 +2,10 @@ import styles from './ChooseElementButton.module.css';
 
 function ChooseElementButton(props)
 {
+    const buttonText = props.buttonText; 
+
     const chooseElementButtonPressed = () => {
-       props.callback({pressedNextScreenButton: true}); 
+       props.callback({pressedNextScreenButton: true, playerOneElement: buttonText}); 
     }
 
     return(

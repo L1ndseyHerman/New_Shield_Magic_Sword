@@ -9,6 +9,35 @@ import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import NewGameButton from './NewGameButton';
 
+function chooseComputerElement()
+{
+  var computerElementNumber = Math.floor(Math.random() * 6);
+
+  if (computerElementNumber === 0)
+  {
+    return "Fire";
+  }
+  else if (computerElementNumber === 1)
+  {
+    return "Earth";
+  }
+  else if (computerElementNumber === 2)
+  {
+    return "Air";
+  }
+  else if (computerElementNumber === 3)
+  {
+    return "Water";
+  }
+  else if (computerElementNumber === 4)
+  {
+    return "Light";
+  }
+  else 
+  {
+    return "Dark";
+  }
+}
  
 function makeComputerChoice()
 {
@@ -138,6 +167,8 @@ function App()
   var newGameButtonDisplay = "none";
   const [onElementSelectScreen, setOnElementSelectScreen] = useState(false);
   const [onGameScreen, setOnGameScreen] = useState(false);
+  const [playerOneElement, setPlayerOneElement] = useState("None Yet");
+  const [computerElement, setComputerElement] = useState("None Yet");
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
@@ -159,7 +190,8 @@ function App()
     var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
     turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
-    " and Computer chose " + computerChoice + ". " + winLooseTieText;
+    " and Computer chose " + computerChoice + ". " + winLooseTieText + "Testing " + 
+    playerOneElement + computerElement;
   }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
@@ -196,6 +228,8 @@ function App()
 
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
     setOnGameScreen(chooseElementButtonSettings.pressedNextScreenButton);
+    setPlayerOneElement(chooseElementButtonSettings.playerOneElement);
+    setComputerElement(chooseComputerElement());
   }
 
   //  I'm just doing these statements in order, so the "if" is the first screen when 
@@ -230,7 +264,7 @@ function App()
           <ChooseElementButton buttonText="Earth" explanation="Air"
            buttonColor="darkolivegreen" callback={chooseElementButtonPressed} />
           <ChooseElementButton buttonText="Air" explanation="Water"
-           buttonColor="wheat" callback={chooseElementButtonPressed} />
+           buttonColor="darkorange" callback={chooseElementButtonPressed} />
           <ChooseElementButton buttonText="Water" explanation="Fire"
            buttonColor="royalblue" callback={chooseElementButtonPressed} />
           <ChooseElementButton buttonText="Light" explanation="Dark"
@@ -268,11 +302,15 @@ function App()
               callback={setUseStates} />
           </div>
           <div id="healthDiv">
-            <PlayerInfo constantText="Player1 health: " changingNumber={playerOneHealth} 
-              floatDirection="left" />
-            <PlayerInfo constantText="Computer health: " changingNumber={computerHealth} 
-              floatDirection="right" />
+            <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
+              floatDirection="left" constantElementText="Player1 element: "
+              element={playerOneElement} />
+            <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
+              floatDirection="right" constantElementText="Computer element: "
+              element={computerElement} />
           </div>
+          <br/>
+          <br/>
           <br/>
           <br/>
           <p>{turnResultsText}</p>

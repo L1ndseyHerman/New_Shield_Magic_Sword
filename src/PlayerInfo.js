@@ -1,9 +1,13 @@
 function PlayerInfo(props)
 {
     return(
-        <div>
-            <p style={{float: props.floatDirection}}>
-                {props.constantText}{props.changingNumber}</p>
+        <div style={{width: "140px", float: props.floatDirection}}>
+            <p>
+                {props.constantHealthText}{props.changingNumber}
+            </p>
+            <p>
+                {props.constantElementText}{props.element}
+            </p>
         </div>
     );
 }
