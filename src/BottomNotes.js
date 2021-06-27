@@ -8,8 +8,8 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version3, which will involve elements like fire magic,
-                water magic, etc.
+                Starting Version 3.1, which will involve CSS changes, like colorful text to 
+                display element things.
             </p>
             <p>
                 If you are a software developer who wants to look at 
