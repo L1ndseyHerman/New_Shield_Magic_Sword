@@ -9,9 +9,10 @@ function ChooseElementButton(props)
     return(
         <div className={styles.elementButtonDiv}>
             <div class="centeredDivPerfectButtonSize">
-                <button onClick={() => {chooseElementButtonPressed()}}>Next Screen</button>
+                <button style={{background: props.buttonColor}} 
+                    onClick={() => {chooseElementButtonPressed()}}>{props.buttonText}</button>
             </div>
-            <p>Placeholder Text</p>
+            <p>+1 damage to {props.explanation}.</p>
         </div>
     );
 }

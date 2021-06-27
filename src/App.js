@@ -5,7 +5,6 @@ import BottomNotes from './BottomNotes';
 
 import ChooseElementButton from './ChooseElementButton';
 
-import TopInstructions from './TopInstructions';
 import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import NewGameButton from './NewGameButton';
@@ -221,14 +220,23 @@ function App()
       <main>   
       <div id="outermostDiv">
         <h1>Element Selection Screen</h1>
-        <p>This screen is in-progress, just choose whatever button for now.</p>
+        <p>
+        This screen is in-progress, just choose whatever button for now.
+        They all just go to the next screen.
+        </p>
         <div id="buttonsAndExplanationsDiv">
-          <ChooseElementButton callback={chooseElementButtonPressed} />
-          <ChooseElementButton callback={chooseElementButtonPressed} />
-          <ChooseElementButton callback={chooseElementButtonPressed} />
-          <ChooseElementButton callback={chooseElementButtonPressed} />
-          <ChooseElementButton callback={chooseElementButtonPressed} />
-          <ChooseElementButton callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Fire" explanation="Earth"
+           buttonColor="firebrick" callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Earth" explanation="Air"
+           buttonColor="darkolivegreen" callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Air" explanation="Water"
+           buttonColor="wheat" callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Water" explanation="Fire"
+           buttonColor="royalblue" callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Light" explanation="Dark"
+           buttonColor="gold" callback={chooseElementButtonPressed} />
+          <ChooseElementButton buttonText="Dark" explanation="Light"
+           buttonColor="rebeccapurple" callback={chooseElementButtonPressed} />
         </div>
       </div>
     </main>
@@ -241,7 +249,10 @@ function App()
       <main>   
         <div id="outermostDiv">
           <h1>Game Screen</h1>
-          <TopInstructions />
+          <p>
+            The rules of this game are that you can't make the same choice twice in a row,
+            and neither can the computer. Use that to your advantage....
+          </p>
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
             <ButtonWithExplanation buttonColor="darkolivegreen"
               buttonText="Shield" explanation="Blocks two physical damage."
