@@ -275,6 +275,7 @@ function App()
     setIsNotNewGame(newGameSettings.isNotNewGame);
     setPlayerOneChoice(newGameSettings.playerOneChoice);
     setDisabledButtons(newGameSettings.disabledButtons); 
+    setOnGameScreen(newGameSettings.onGameScreen);
   }
 
   const beginGameButtonPressed = (beginGameButtonSettings) => {
@@ -313,6 +314,7 @@ function App()
           Your element choice affects gameplay now, so choose carefully. 
           The computer will randomly choose an element.
         </p>
+        <br/>
         <div id="buttonsAndExplanationsDiv">
           <ChooseElementButton buttonText="Fire" explanation="Earth"
            buttonColor="firebrick" callback={chooseElementButtonPressed} />
@@ -342,6 +344,7 @@ function App()
             The rules of this game are that you can't make the same choice twice in a row,
             and neither can the computer. Use that to your advantage....
           </p>
+          <br/>
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
             <ButtonWithExplanation buttonColor="darkolivegreen"
               buttonText="Shield" explanation="Blocks two physical damage."
