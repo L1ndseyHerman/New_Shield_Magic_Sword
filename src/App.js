@@ -7,6 +7,7 @@ import ChooseElementButton from './ChooseElementButton';
 
 import ButtonWithExplanation from './ButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
+import TurnResultsText from './TurnResultsText';
 import NewGameButton from './NewGameButton';
 
 function chooseComputerElement()
@@ -192,7 +193,6 @@ function App()
 {
   const [playerOneChoice, setPlayerOneChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
-  var turnResultsText = "";
   var playerOneHealth = 10;
   var computerHealth = 10;
   const [isNotNewGame, setIsNotNewGame] = useState(true);
@@ -225,7 +225,7 @@ function App()
     var computerElementalBonusText = "";
     if (computerElementalBonusDamage > 0)
     {
-      computerElementalBonusText = " (+1 bonus elemental damage) ";
+      computerElementalBonusText = "(+1 bonus elemental damage)";
     }
 
     var computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
@@ -239,14 +239,15 @@ function App()
     var playerOneElementalBonusText = "";
     if (playerOneElementalBonusDamage > 0)
     {
-      playerOneElementalBonusText = " (+1 bonus elemental damage) ";
+      playerOneElementalBonusText = "(+1 bonus elemental damage)";
     }
 
     var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
     
-    turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
-    playerOneElementalBonusText + " and Computer chose " + computerChoice +
-    computerElementalBonusText + ". " + winLooseTieText
+    /*turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
+    <span style={{color: 'gold', backgroundColor: 'black'}}> + playerOneElementalBonusText +
+     </span> + "and Computer chose " + computerChoice +
+    computerElementalBonusText + ". " + winLooseTieText*/
   }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
@@ -380,7 +381,14 @@ function App()
           <br/>
           <br/>
           <br/>
-          <p>{turnResultsText}</p>
+          <TurnResultsText
+            playerOneElement={playerOneElement}
+            computerElement={computerElement}
+            playerOneChoice={playerOneChoice} 
+            playerOneElementalBonusText={playerOneElementalBonusText}
+            computerChoice={computerChoice}
+            computerElementalBonusText={computerElementalBonusText}
+            winLooseTieText={winLooseTieText} />
           <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
             callback={setUseStates} />
         </div>
