@@ -210,7 +210,7 @@ function App()
     computerHealth = Number(sessionStorage.getItem("computerHealth") || 10);
   }
 
-  if (playerOneChoice !== "First Turn")
+  if (playerOneChoice !== "First Turn") 
   {
     var computerChoice = makeComputerChoice();
 
