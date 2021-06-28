@@ -381,7 +381,7 @@ function App()
           <br/>
           <br/>
           <br/>
-          <TurnResultsText
+          <TurnResultsText 
             playerOneElement={playerOneElement}
             computerElement={computerElement}
             playerOneChoice={playerOneChoice} 

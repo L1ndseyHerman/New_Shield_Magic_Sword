@@ -1,4 +1,4 @@
-function TurnResultsText(props)
+function TurnResultsText(props) 
 {
     var playerOneColor = "Error";
 
