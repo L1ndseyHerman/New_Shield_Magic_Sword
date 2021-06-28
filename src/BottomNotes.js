@@ -8,8 +8,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version 3.1, which will involve CSS changes, like colorful text to 
-                display element things.
+                Done with Version 3.1, which is colorful element text.
             </p>
             <p>
                 If you are a software developer who wants to look at 
