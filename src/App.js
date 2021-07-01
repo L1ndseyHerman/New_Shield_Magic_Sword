@@ -278,14 +278,6 @@ function App()
       //  you put in this array change, instead of all the variables.
   }, [computerChoice, computerHealth, playerOneHealth])
 
-  //  For button callbacks:
-  const setUseStates = (newGameSettings) => {
-    setIsNotNewGame(newGameSettings.isNotNewGame);
-    setPlayerOneChoice(newGameSettings.playerOneChoice);
-    setDisabledButtons(newGameSettings.disabledButtons); 
-    setOnGameScreen(newGameSettings.onGameScreen);
-  }
-
   const beginGameButtonPressed = (beginGameButtonSettings) => {
     setOnElementSelectScreen(beginGameButtonSettings.pressedNextScreenButton);
   }
@@ -294,6 +286,14 @@ function App()
     setOnGameScreen(chooseElementButtonSettings.pressedNextScreenButton);
     setPlayerOneElement(chooseElementButtonSettings.playerOneElement);
     setComputerElement(chooseComputerElement());
+  }
+
+  //  This could come from a GameButtonWithExplanation or a NewGameButton.
+  const gameButtonOrNewGameButtonPressed = (currentGameOrNewGameSettings) => {
+    setIsNotNewGame(currentGameOrNewGameSettings.isNotNewGame);
+    setPlayerOneChoice(currentGameOrNewGameSettings.playerOneChoice);
+    setDisabledButtons(currentGameOrNewGameSettings.disabledButtons); 
+    setOnGameScreen(currentGameOrNewGameSettings.onGameScreen);
   }
 
   //  I'm just doing these statements in order, so the "if" is the first screen when 
@@ -357,15 +357,15 @@ function App()
             <GameButtonWithExplanation buttonColor="darkolivegreen"
               buttonText="Shield" explanation="Blocks two physical damage."
               buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
-              callback={setUseStates} />
+              callback={gameButtonOrNewGameButtonPressed} />
             <GameButtonWithExplanation buttonColor="royalblue"
               buttonText="Magic" explanation="Deals one magic damage."
               buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
-              callback={setUseStates} />
+              callback={gameButtonOrNewGameButtonPressed} />
             <GameButtonWithExplanation buttonColor="firebrick"
               buttonText="Sword" explanation="Deals two physical damage."
               buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
-              callback={setUseStates} />
+              callback={gameButtonOrNewGameButtonPressed} />
           </div>
           <div id="healthDiv">
             <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
@@ -389,7 +389,7 @@ function App()
             computerElementalBonusText={computerElementalBonusText}
             winLooseTieText={winLooseTieText} />
           <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
-            callback={setUseStates} />
+            callback={gameButtonOrNewGameButtonPressed} />
         </div>
       </main>
     );
