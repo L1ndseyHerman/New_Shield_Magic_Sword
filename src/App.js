@@ -243,11 +243,6 @@ function App()
     }
 
     var winLooseTieText = checkWinLooseTie(playerOneHealth, computerHealth);
-    
-    /*turnResultsText = turnResultsText + "Player1 chose " + playerOneChoice +
-    <span style={{color: 'gold', backgroundColor: 'black'}}> + playerOneElementalBonusText +
-     </span> + "and Computer chose " + computerChoice +
-    computerElementalBonusText + ". " + winLooseTieText*/
   }
 
   if ((playerOneHealth <= 0) || (computerHealth <= 0))
