@@ -1,14 +1,9 @@
 function BottomNotes()
 {
-    //  For some reason, this always gets the current time, maybe because of how React works?
-    //var lastModified = document.lastModified;
-    //  Doesn't do anything:
-    //var lastModified = File.lastModified;
-
     return(
         <div>
             <p>
-                Done with Version 3.1, which is colorful element text.
+                Starting Version 3.2, which will do the same stuff, just with cleaner code.
             </p>
             <p>
                 If you are a software developer who wants to look at 
@@ -23,7 +18,7 @@ function BottomNotes()
                 for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 06/27/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 06/30/21</footer>
         </div>
     );
 }
