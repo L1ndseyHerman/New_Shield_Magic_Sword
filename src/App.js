@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import BeginGameButton from './BeginGameButton';
 import BottomNotes from './BottomNotes';
 
-import ChooseElementButton from './ChooseElementButton';
+import ChooseElementButtonWithExplanation from './ChooseElementButtonWithExplanation';
 
-import ButtonWithExplanation from './ButtonWithExplanation';
+import GameButtonWithExplanation from './GameButtonWithExplanation';
 import PlayerInfo from './PlayerInfo';
 import TurnResultsText from './TurnResultsText';
 import NewGameButton from './NewGameButton';
@@ -320,17 +320,17 @@ function App()
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
-          <ChooseElementButton buttonText="Fire" explanation="Earth"
+          <ChooseElementButtonWithExplanation buttonText="Fire" explanation="Earth"
            buttonColor="firebrick" callback={chooseElementButtonPressed} />
-          <ChooseElementButton buttonText="Earth" explanation="Air"
+          <ChooseElementButtonWithExplanation buttonText="Earth" explanation="Air"
            buttonColor="darkolivegreen" callback={chooseElementButtonPressed} />
-          <ChooseElementButton buttonText="Air" explanation="Water"
+          <ChooseElementButtonWithExplanation buttonText="Air" explanation="Water"
            buttonColor="darkorange" callback={chooseElementButtonPressed} />
-          <ChooseElementButton buttonText="Water" explanation="Fire"
+          <ChooseElementButtonWithExplanation buttonText="Water" explanation="Fire"
            buttonColor="royalblue" callback={chooseElementButtonPressed} />
-          <ChooseElementButton buttonText="Light" explanation="Dark"
+          <ChooseElementButtonWithExplanation buttonText="Light" explanation="Dark"
            buttonColor="gold" callback={chooseElementButtonPressed} />
-          <ChooseElementButton buttonText="Dark" explanation="Light"
+          <ChooseElementButtonWithExplanation buttonText="Dark" explanation="Light"
            buttonColor="rebeccapurple" callback={chooseElementButtonPressed} />
         </div>
       </div>
@@ -350,15 +350,15 @@ function App()
           </p>
           <br/>
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
-            <ButtonWithExplanation buttonColor="darkolivegreen"
+            <GameButtonWithExplanation buttonColor="darkolivegreen"
               buttonText="Shield" explanation="Blocks two physical damage."
               buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
               callback={setUseStates} />
-            <ButtonWithExplanation buttonColor="royalblue"
+            <GameButtonWithExplanation buttonColor="royalblue"
               buttonText="Magic" explanation="Deals one magic damage."
               buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
               callback={setUseStates} />
-            <ButtonWithExplanation buttonColor="firebrick"
+            <GameButtonWithExplanation buttonColor="firebrick"
               buttonText="Sword" explanation="Deals two physical damage."
               buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
               callback={setUseStates} />

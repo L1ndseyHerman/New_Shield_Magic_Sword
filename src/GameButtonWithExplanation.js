@@ -1,6 +1,6 @@
-import styles from './ButtonWithExplanation.module.css';
+import styles from './GameButtonWithExplanation.module.css';
 
-function ButtonWithExplanation(props)
+function GameButtonWithExplanation(props)
 {
     var theDisabledButtons = [false, false, false];
     var index;
@@ -36,4 +36,4 @@ function ButtonWithExplanation(props)
     );
 }
     
-export default ButtonWithExplanation;
+export default GameButtonWithExplanation;

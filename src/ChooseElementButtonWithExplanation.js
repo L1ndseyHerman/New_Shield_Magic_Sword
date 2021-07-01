@@ -1,6 +1,6 @@
-import styles from './ChooseElementButton.module.css';
+import styles from './ChooseElementButtonWithExplanation.module.css';
 
-function ChooseElementButton(props)
+function ChooseElementButtonWithExplanation(props)
 {
     var color = "Error";
 
@@ -49,4 +49,4 @@ function ChooseElementButton(props)
     );
 }
     
-export default ChooseElementButton;
+export default ChooseElementButtonWithExplanation;
