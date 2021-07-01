@@ -325,17 +325,23 @@ function App()
         <br/>
         <div id="buttonsAndExplanationsDiv">
           <ChooseElementButtonWithExplanation buttonText="Fire" explanation="Earth"
-           buttonColor="firebrick" callback={chooseElementButtonPressed} />
+           buttonColor="firebrick" explanationColor="darkolivegreen"
+           callback={chooseElementButtonPressed} />
           <ChooseElementButtonWithExplanation buttonText="Earth" explanation="Air"
-           buttonColor="darkolivegreen" callback={chooseElementButtonPressed} />
+           buttonColor="darkolivegreen" explanationColor="darkorange"
+           callback={chooseElementButtonPressed} />
           <ChooseElementButtonWithExplanation buttonText="Air" explanation="Water"
-           buttonColor="darkorange" callback={chooseElementButtonPressed} />
+           buttonColor="darkorange" explanationColor="royalblue"
+           callback={chooseElementButtonPressed} />
           <ChooseElementButtonWithExplanation buttonText="Water" explanation="Fire"
-           buttonColor="royalblue" callback={chooseElementButtonPressed} />
+           buttonColor="royalblue" explanationColor="firebrick"
+           callback={chooseElementButtonPressed} />
           <ChooseElementButtonWithExplanation buttonText="Light" explanation="Dark"
-           buttonColor="gold" callback={chooseElementButtonPressed} />
+           buttonColor="gold" explanationColor="rebeccapurple"
+           callback={chooseElementButtonPressed} />
           <ChooseElementButtonWithExplanation buttonText="Dark" explanation="Light"
-           buttonColor="rebeccapurple" callback={chooseElementButtonPressed} />
+           buttonColor="rebeccapurple" explanationColor="gold"
+           callback={chooseElementButtonPressed} />
         </div>
       </div>
     </main>
