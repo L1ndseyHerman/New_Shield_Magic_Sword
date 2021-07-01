@@ -191,17 +191,21 @@ function checkWinLooseTie(playerOneHealth, computerHealth)
 
 function App() 
 {
+  //  Reordered these const/variables a little to be kind of in order of the screens they happen on? 
+  const [onElementSelectScreen, setOnElementSelectScreen] = useState(false);
+  const [onGameScreen, setOnGameScreen] = useState(false);
+
+  const [playerOneElement, setPlayerOneElement] = useState("None Yet");
+  const [computerElement, setComputerElement] = useState("None Yet");
+
   const [playerOneChoice, setPlayerOneChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
   var playerOneHealth = 10;
   var computerHealth = 10;
+
   const [isNotNewGame, setIsNotNewGame] = useState(true);
   var buttonsAndExplanationsDivDisplay = "block";
   var newGameButtonDisplay = "none";
-  const [onElementSelectScreen, setOnElementSelectScreen] = useState(false);
-  const [onGameScreen, setOnGameScreen] = useState(false);
-  const [playerOneElement, setPlayerOneElement] = useState("None Yet");
-  const [computerElement, setComputerElement] = useState("None Yet");
 
   //  Already reset to 10 if it is :)
   if (isNotNewGame)
