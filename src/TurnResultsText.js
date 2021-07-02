@@ -1,68 +1,14 @@
 function TurnResultsText(props) 
 {
-    var playerOneColor = "Error";
-
-    if (props.playerOneElement === "Fire")
-    {
-        playerOneColor = "firebrick";
-    }
-    else if (props.playerOneElement === "Earth")
-    {
-        playerOneColor = "darkolivegreen";
-    }
-    else if (props.playerOneElement === "Air")
-    {
-        playerOneColor = "darkorange";
-    }
-    else if (props.playerOneElement === "Water")
-    {
-        playerOneColor = "royalblue";
-    }
-    else if (props.playerOneElement === "Light")
-    {
-        playerOneColor = "gold";
-    }
-    else 
-    {
-        playerOneColor = "rebeccapurple";
-    }
-
-    var computerColor = "Error";
-
-    if (props.computerElement === "Fire")
-    {
-        computerColor = "firebrick";
-    }
-    else if (props.computerElement === "Earth")
-    {
-        computerColor = "darkolivegreen";
-    }
-    else if (props.computerElement === "Air")
-    {
-        computerColor = "darkorange";
-    }
-    else if (props.computerElement === "Water")
-    {
-        computerColor = "royalblue";
-    }
-    else if (props.computerElement === "Light")
-    {
-        computerColor = "gold";
-    }
-    else 
-    {
-        computerColor = "rebeccapurple";
-    }
-
     if (props.playerOneChoice !== "First Turn")
     {
         return(
             <div>
                 <p>
-                    Player1 chose {props.playerOneChoice} <span style={{color: playerOneColor, 
+                    Player1 chose {props.playerOneChoice} <span style={{color: props.playerOneElementColor, 
                     backgroundColor: "black"}}>
                     {props.playerOneElementalBonusText}</span> and Computer 
-                    chose {props.computerChoice} <span style={{color: computerColor, 
+                    chose {props.computerChoice} <span style={{color: props.computerElementColor, 
                     backgroundColor: "black"}}>{props.computerElementalBonusText}
                     </span>. {props.winLooseTieText}
                 </p>

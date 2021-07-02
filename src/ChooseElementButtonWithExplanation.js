@@ -24,7 +24,7 @@ function ChooseElementButtonWithExplanation(props)
     {
         playerOneElementColor = "gold";
     }
-    else 
+    else if (props.buttonText === "Dark")
     {
         playerOneElementColor = "rebeccapurple";
     }
@@ -59,7 +59,7 @@ function ChooseElementButtonWithExplanation(props)
     computerElement = "Light";
     computerElementColor = "gold";
   }
-  else 
+  else if (computerElementNumber === 5)
   {
     computerElement = "Dark";
     computerElementColor = "rebeccapurple";
