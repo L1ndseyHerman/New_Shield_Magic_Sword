@@ -1,6 +1,6 @@
 function PlayerInfo(props)
 {
-    var color = "Error";
+    /*var color = "Error";
 
     if (props.element === "Fire")
     {
@@ -25,7 +25,9 @@ function PlayerInfo(props)
     else 
     {
         color = "rebeccapurple";
-    }
+    }*/
+
+    //const color = props.elementColor;
 
     return(
         <div style={{width: "150px", float: props.floatDirection}}>
@@ -34,7 +36,7 @@ function PlayerInfo(props)
             </p>
             <p>
                 {props.constantElementText}
-                <span style={{color: color, backgroundColor: "black"}}>
+                <span style={{color: props.elementColor, backgroundColor: "black"}}>
                     {props.element}
                 </span> 
             </p>

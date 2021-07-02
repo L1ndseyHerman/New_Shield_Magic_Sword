@@ -10,7 +10,7 @@ import PlayerInfo from './PlayerInfo';
 import TurnResultsText from './TurnResultsText';
 import NewGameButton from './NewGameButton';
 
-function chooseComputerElement()
+/*function chooseComputerElement()
 {
   var computerElementNumber = Math.floor(Math.random() * 6);
 
@@ -38,7 +38,37 @@ function chooseComputerElement()
   {
     return "Dark";
   }
-}
+}*/
+
+/*function chooseElementColor(element)
+{
+  if (element === "Fire")
+  {
+    return "firebrick";
+  }
+  else if (element === "Earth")
+  {
+    return "darkolivegreen";
+  }
+  else if (element === "Air")
+  {
+    return "darkorange";
+  }
+  else if (element === "Water")
+  {
+    return "royalblue";
+  }
+  else if (element === "Light")
+  {
+    return "gold";
+  }
+  else if (element === "Dark")
+  {
+    return "rebeccapurple";
+  }
+  //  Should never happen, "wheat" always default:
+  return "wheat";
+}*/
  
 function makeComputerChoice()
 {
@@ -197,6 +227,11 @@ function App()
 
   const [playerOneElement, setPlayerOneElement] = useState("None Yet");
   const [computerElement, setComputerElement] = useState("None Yet");
+  //  Wheat is the default button color in index.css, so I'm using it as the default color here too.
+  const [playerOneElementColor, setPlayerOneElementColor] = useState("wheat");
+  const [computerElementColor, setComputerElementColor] = useState("wheat");
+  //var playerOneElementColor = "wheat";
+  //var computerElementColor = "wheat";
 
   const [playerOneChoice, setPlayerOneChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
@@ -285,7 +320,16 @@ function App()
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
     setOnGameScreen(chooseElementButtonSettings.pressedNextScreenButton);
     setPlayerOneElement(chooseElementButtonSettings.playerOneElement);
-    setComputerElement(chooseComputerElement());
+    setPlayerOneElementColor(chooseElementButtonSettings.playerOneElementColor);
+    setComputerElement(chooseElementButtonSettings.computerElement);
+    setComputerElementColor(chooseElementButtonSettings.computerElementColor);
+    //var tempVar = chooseElementColor(playerOneElement);
+    //setPlayerOneElementColor(tempVar);
+    //setPlayerOneElementColor(chooseElementColor({playerOneElement}));
+    //playerOneElementColor = chooseElementColor(playerOneElement);
+    //setComputerElement(chooseComputerElement());
+    //computerElementColor= chooseElementColor(computerElement);
+    //setComputerElementColor(chooseElementColor({computerElement}));
   }
 
   //  This could come from a GameButtonWithExplanation or a NewGameButton.
@@ -376,10 +420,10 @@ function App()
           <div id="healthDiv">
             <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
               floatDirection="left" constantElementText="Player1 element: "
-              element={playerOneElement} />
+              element={playerOneElement} elementColor={playerOneElementColor} />
             <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
               floatDirection="right" constantElementText="Computer element: "
-              element={computerElement} />
+              element={computerElement} elementColor={computerElementColor} />
           </div>
           <br/>
           <br/>
