@@ -3,7 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version 3.2, which will do the same stuff, just with cleaner code.
+                Done with Version 3.2, which was me cleaning the code a bit.
             </p>
             <p>
                 If you are a software developer who wants to look at 
