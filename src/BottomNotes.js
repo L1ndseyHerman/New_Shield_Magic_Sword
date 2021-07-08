@@ -9,6 +9,12 @@ function BottomNotes()
                 installing Jest since &quot;create react app&quot; already installed it.
             </p>
             <p>
+                Hmm, it seems Jest is unable to pass in &quot;fake&quot; props to a component to see 
+                what it will render with those props? I was hoping to test that button 
+                components never stay their default &quot;wheat&quot; color. 
+                Time for more googling!
+            </p>
+            <p>
                 If you are a software developer who wants to look at 
                 previous versions, you can go to
                 my <a href="https://github.com/L1ndseyHerman/New_Shield_Magic_Sword/">
@@ -21,7 +27,7 @@ function BottomNotes()
                 for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 07/04/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 07/08/21</footer>
         </div>
     );
 }
