@@ -1,5 +1,3 @@
-// hello.test.js
-
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
@@ -23,8 +21,9 @@ afterEach(() => {
 it("renders explanation text", () => {
 
   act(() => {
-    render(<ChooseElementButtonWithExplanation explanation="Earth" />, container);
+    render(<ChooseElementButtonWithExplanation buttonText="Fire" explanation="Earth" />, container);
   });
-  expect(container.textContent).toBe("+1 damage to Earth.");
+  expect(container.querySelector("button").textContent).toBe("Fire");
+  expect(container.querySelector("p").textContent).toBe("+1 damage to Earth.");
 
 });
