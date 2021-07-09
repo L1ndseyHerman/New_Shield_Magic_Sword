@@ -5,14 +5,9 @@ function BottomNotes()
             <p>
                 Starting Version 3.3, which involves unit testing using Jest. I did a bit of 
                 googling, and it seems Jest is the most popular React JS testing framework. I mostly 
-                followed <a href="https://jestjs.io/docs/getting-started">This Guide</a>, minus 
+                followed <a href="https://jestjs.io/docs/getting-started">This Guide</a> to 
+                get started, minus 
                 installing Jest since &quot;create react app&quot; already installed it.
-            </p>
-            <p>
-                Hmm, it seems Jest is unable to pass in &quot;fake&quot; props to a component to see 
-                what it will render with those props? I was hoping to test that button 
-                components never stay their default &quot;wheat&quot; color. 
-                Time for more googling!
             </p>
             <p>
                 If you are a software developer who wants to look at 

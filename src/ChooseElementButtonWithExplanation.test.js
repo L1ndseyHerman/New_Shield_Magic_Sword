@@ -1,6 +1,30 @@
-const example = jest.createMockFromModule('./ChooseElementButtonWithExplanation' );
+// hello.test.js
 
-// This gets undefined, bec there is no playerOneElementColor.
-test('Make sure the color is not wheat still', () => {
-  expect(example.playerOneElementColor).toBe("wheat");
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+
+import ChooseElementButtonWithExplanation from "./ChooseElementButtonWithExplanation";
+
+let container = null;
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // cleanup on exiting
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it("renders explanation text", () => {
+
+  act(() => {
+    render(<ChooseElementButtonWithExplanation explanation="Earth" />, container);
+  });
+  expect(container.textContent).toBe("+1 damage to Earth.");
+
 });
