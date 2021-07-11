@@ -361,9 +361,7 @@ function App()
           <br/>
           <br/>
           <TurnResultsText 
-            playerOneElement={playerOneElement}
             playerOneElementColor={playerOneElementColor}
-            computerElement={computerElement}
             computerElementColor={computerElementColor}
             playerOneChoice={playerOneChoice} 
             playerOneElementalBonusText={playerOneElementalBonusText}
