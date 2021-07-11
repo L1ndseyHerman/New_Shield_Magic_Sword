@@ -21,8 +21,11 @@ afterEach(() => {
 it("renders explanation text", () => {
   
   act(() => {
-    render(<GameButtonWithExplanation explanation="Blocks two physical damage." />, container);
+    render(<GameButtonWithExplanation buttonText="Shield" 
+      explanation="Blocks two physical damage." />, container);
   });
-  expect(container.textContent).toBe("Blocks two physical damage.");
+
+  expect(container.querySelector("button").textContent).toBe("Shield");
+  expect(container.querySelector("p").textContent).toBe("Blocks two physical damage.");
 
 });
