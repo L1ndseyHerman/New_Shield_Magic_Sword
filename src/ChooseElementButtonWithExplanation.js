@@ -2,6 +2,9 @@ import styles from './ChooseElementButtonWithExplanation.module.css';
 
 function ChooseElementButtonWithExplanation(props)
 {
+    //  The snapshot in the test doesn't work the way I wanted it to :(
+    //  It still passed when I changed this color to "firebrick" :(
+    //var playerOneElementColor = "firebrick";
     var playerOneElementColor = "wheat";
 
     if (props.buttonText === "Fire")
