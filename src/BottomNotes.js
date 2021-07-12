@@ -3,7 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version 3.3, which involves unit testing using Jest. I did a bit of 
+                Done with Version 3.3, which involves unit testing using Jest. I did a bit of 
                 googling, and it seems Jest is the most popular React JS testing framework. I mostly 
                 followed <a href="https://jestjs.io/docs/getting-started">This Guide</a> to 
                 get started, minus 
