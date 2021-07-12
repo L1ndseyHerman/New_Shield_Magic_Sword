@@ -1,4 +1,4 @@
-function BottomNotes()
+function BottomNotes() 
 {
     return(
         <div>
