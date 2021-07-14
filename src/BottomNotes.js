@@ -3,7 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version 3.4, which will be more graphics. New app logo coming soon!
+                Starting Version 3.4, which is a new app logo and more graphics.
             </p>
             <p>
                 If you are a software developer who wants to look at 
@@ -18,7 +18,7 @@ function BottomNotes()
                 for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 07/13/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 07/14/21</footer>
         </div>
     );
 }

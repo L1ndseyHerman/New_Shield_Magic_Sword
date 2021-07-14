@@ -1,3 +1,7 @@
+import shieldImage from './SmolShield.png';
+import magicImage from './SmolMagic.png';
+import swordImage from './SmolSword.png';
+
 function PlayerInfo(props)
 {
     //  #testingPar1 and #testingPar2 are needed for Jest testing.
@@ -12,6 +16,9 @@ function PlayerInfo(props)
                     {props.element}
                 </span> 
             </p>
+            <img src={shieldImage} alt="Shield"></img>
+            <img src={magicImage} alt="Magic"></img>
+            <img src={swordImage} alt="Sword"></img>
         </div>
     );
 }
