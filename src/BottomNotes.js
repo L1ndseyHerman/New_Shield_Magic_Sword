@@ -3,11 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Done with Version 3.3, which involves unit testing using Jest. I did a bit of 
-                googling, and it seems Jest is the most popular React JS testing framework. I mostly 
-                followed <a href="https://jestjs.io/docs/getting-started">This Guide</a> to 
-                get started, minus 
-                installing Jest since &quot;create react app&quot; already installed it.
+                Starting Version 3.4, which will be more graphics. New app logo coming soon!
             </p>
             <p>
                 If you are a software developer who wants to look at 
@@ -22,7 +18,7 @@ function BottomNotes()
                 for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 07/11/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 07/13/21</footer>
         </div>
     );
 }

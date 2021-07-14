@@ -3,17 +3,17 @@
   "name": "Shield-Magic-Sword",
   "icons": [
     {
-      "src": "SMSLogo60px.ico",
+      "src": "SMSNewLogo60px.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "SMSLogo192px.png",
+      "src": "SMSNewLogo192px.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "SMSLogo512px.png",
+      "src": "SMSNewLogo512px.png",
       "type": "image/png",
       "sizes": "512x512"
     }
