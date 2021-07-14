@@ -15,7 +15,7 @@ function PlayerInfo(props)
                     {props.element}
                 </span> 
             </p>
-            <PlayerInfoImage choice={props.choice} />
+            <PlayerInfoImage choice={props.choice} floatDirection={props.floatDirection} />
         </div>
     );
 }
