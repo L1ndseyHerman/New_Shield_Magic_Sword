@@ -350,11 +350,17 @@ function App()
           <div id="healthDiv">
             <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
               floatDirection="left" constantElementText="Player1 element: "
-              element={playerOneElement} elementColor={playerOneElementColor} />
+              element={playerOneElement} elementColor={playerOneElementColor}
+              choice={playerOneChoice} />
             <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
               floatDirection="right" constantElementText="Computer element: "
-              element={computerElement} elementColor={computerElementColor} />
+              element={computerElement} elementColor={computerElementColor}
+              choice={computerChoice} />
           </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <br/>
           <br/>
           <br/>

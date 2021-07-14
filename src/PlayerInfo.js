@@ -1,6 +1,5 @@
-import shieldImage from './SmolShield.png';
-import magicImage from './SmolMagic.png';
-import swordImage from './SmolSword.png';
+import PlayerInfoImage from "./PlayerInfoImage";
+
 
 function PlayerInfo(props)
 {
@@ -16,9 +15,7 @@ function PlayerInfo(props)
                     {props.element}
                 </span> 
             </p>
-            <img src={shieldImage} alt="Shield"></img>
-            <img src={magicImage} alt="Magic"></img>
-            <img src={swordImage} alt="Sword"></img>
+            <PlayerInfoImage choice={props.choice} />
         </div>
     );
 }
