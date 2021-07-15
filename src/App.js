@@ -357,15 +357,6 @@ function App()
               element={computerElement} elementColor={computerElementColor}
               choice={computerChoice} />
           </div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}
             computerElementColor={computerElementColor}

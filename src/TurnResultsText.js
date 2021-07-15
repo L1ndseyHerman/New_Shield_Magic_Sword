@@ -4,6 +4,15 @@ function TurnResultsText(props)
     {
         return(
             <div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <p>
                     Player1 chose {props.playerOneChoice} <span style={{color: props.playerOneElementColor, 
                     backgroundColor: "black"}}>
