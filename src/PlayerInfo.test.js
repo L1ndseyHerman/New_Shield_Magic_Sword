@@ -18,17 +18,64 @@ afterEach(() => {
   container = null;
 });
 
-it("renders explanation text", () => {
+//  I didn't test every possible combination here, but I think this is a good 
+//  sample size/tests the general idea.
+it("renders Player1 example", () => {
 
-  //  For all of these tests, just testing the first (left-most) component, since the 
-  //  other five should do sim things.
   act(() => {
     render(<PlayerInfo constantHealthText="Player1 health: " 
-        changingNumber="10" constantElementText="Player1 element: " 
-        element="Fire" />, container);
+        changingNumber="10" floatDirection="left" constantElementText="Player1 element: " 
+        element="Fire" elementColor="firebrick" />, container);
   });
   
+  expect(container.querySelector("div").style.float).toBe("left");
   expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 10");
+  expect(container.querySelector("span").style.color).toBe("firebrick");
   expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Fire");
+
+});
+
+it("renders Computer example", () => {
+
+  act(() => {
+    render(<PlayerInfo constantHealthText="Computer health: " 
+        changingNumber="10" floatDirection="right" constantElementText="Computer element: " 
+        element="Fire" elementColor="firebrick" />, container);
+  });
+  
+  expect(container.querySelector("div").style.float).toBe("right");
+  expect(container.querySelector("#testingPar1").textContent).toBe("Computer health: 10");
+  expect(container.querySelector("span").style.color).toBe("firebrick");
+  expect(container.querySelector("#testingPar2").textContent).toBe("Computer element: Fire");
+
+});
+
+it("renders Player1 different health", () => {
+
+  act(() => {
+    render(<PlayerInfo constantHealthText="Player1 health: " 
+        changingNumber="5" floatDirection="left" constantElementText="Player1 element: " 
+        element="Fire" elementColor="firebrick" />, container);
+  });
+  
+  expect(container.querySelector("div").style.float).toBe("left");
+  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 5");
+  expect(container.querySelector("span").style.color).toBe("firebrick");
+  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Fire");
+
+});
+
+it("renders Player1 different element", () => {
+
+  act(() => {
+    render(<PlayerInfo constantHealthText="Player1 health: " 
+        changingNumber="10" floatDirection="left" constantElementText="Player1 element: " 
+        element="Earth" elementColor="darkolivegreen" />, container);
+  });
+  
+  expect(container.querySelector("div").style.float).toBe("left");
+  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 10");
+  expect(container.querySelector("span").style.color).toBe("darkolivegreen");
+  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Earth");
 
 });
