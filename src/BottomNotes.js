@@ -3,7 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Done with Version 3.4, which is a new app logo and more graphics.
+                Done with Version 3.4, which is a new app logo and more graphics. 
             </p>
             <p>
                 If you are a software developer who wants to look at 
