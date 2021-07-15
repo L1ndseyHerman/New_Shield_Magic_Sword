@@ -3,7 +3,8 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Done with Version 3.4, which is a new app logo and more graphics.
+                Starting Version 3.5, which is more unit testing with Jest, because I
+                finally figured out how to test things other than .textContent!
             </p>
             <p>
                 If you are a software developer who wants to look at 
