@@ -161,8 +161,7 @@ function checkWinLooseTie(playerOneHealth, computerHealth)
 function App() 
 {
   //  Reordered these const/variables a little to be kind of in order of the screens they happen on? 
-  const [onElementSelectScreen, setOnElementSelectScreen] = useState(false);
-  const [onGameScreen, setOnGameScreen] = useState(false);
+  const [screenName, setScreenName] = useState("Shield-Magic-Sword");
 
   const [playerOneElement, setPlayerOneElement] = useState("None Yet");
   const [computerElement, setComputerElement] = useState("None Yet");
@@ -233,7 +232,7 @@ function App()
     sessionStorage.setItem("playerOneHealth", 10);
     sessionStorage.setItem("computerHealth", 10);
     sessionStorage.setItem("lastComputerChoice", "First Turn");
-  }, [onElementSelectScreen])
+  }, [screenName])
 
   useEffect(() => {
       //  Since there didn't use to be a choice, client may have previous localStorage data
@@ -251,11 +250,11 @@ function App()
   }, [computerChoice, computerHealth, playerOneHealth])
 
   const beginGameButtonPressed = (beginGameButtonSettings) => {
-    setOnElementSelectScreen(beginGameButtonSettings.pressedNextScreenButton);
+    setScreenName(beginGameButtonSettings.screenName);
   }
 
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
-    setOnGameScreen(chooseElementButtonSettings.pressedNextScreenButton);
+    setScreenName(chooseElementButtonSettings.screenName);
     setPlayerOneElement(chooseElementButtonSettings.playerOneElement);
     setPlayerOneElementColor(chooseElementButtonSettings.playerOneElementColor);
     setComputerElement(chooseElementButtonSettings.computerElement);
@@ -267,18 +266,18 @@ function App()
     setIsNotNewGame(currentGameOrNewGameSettings.isNotNewGame);
     setPlayerOneChoice(currentGameOrNewGameSettings.playerOneChoice);
     setDisabledButtons(currentGameOrNewGameSettings.disabledButtons); 
-    setOnGameScreen(currentGameOrNewGameSettings.onGameScreen);
+    setScreenName(currentGameOrNewGameSettings.screenName);
   }
 
   //  I'm just doing these statements in order, so the "if" is the first screen when 
   //  the website loads/the browser refreshes, then the "else if" is the next "page", then the 
   //  next "else if" is the next one, etc. 
-  if (!onElementSelectScreen)
+  if (screenName === "Shield-Magic-Sword")
   {
     return (
       <main>   
         <div id="outermostDiv">
-          <h1>Shield-Magic-Sword</h1>
+          <h1>{screenName}</h1>
           <BeginGameButton callback={beginGameButtonPressed} />
           <BottomNotes />
         </div>
@@ -286,15 +285,14 @@ function App()
     );
   }
 
-  else if (onElementSelectScreen && !onGameScreen)
+  else if (screenName === "Element Selection Screen")
   {
     return (
       <main>   
       <div id="outermostDiv">
-        <h1>Element Selection Screen</h1>
+        <h1>{screenName}</h1>
         <p>
-          Your element choice affects gameplay now, so choose carefully. 
-          The computer will randomly choose an element.
+          Choose an element. The computer will randomly choose one.
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
@@ -322,12 +320,12 @@ function App()
     );
   }
 
-  else if (onGameScreen)
+  else if (screenName === "Game Screen")
   {
     return (
       <main>   
         <div id="outermostDiv">
-          <h1>Game Screen</h1>
+          <h1>{screenName}</h1>
           <p>
             The rules of this game are that you can't make the same choice twice in a row,
             and neither can the computer. Use that to your advantage....

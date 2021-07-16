@@ -22,7 +22,7 @@ function GameButtonWithExplanation(props)
 
     const buttonPressed = () => {
        props.callback({isNotNewGame: true, playerOneChoice: props.buttonText, 
-       disabledButtons: theDisabledButtons, onGameScreen: true}); 
+       disabledButtons: theDisabledButtons, screenName: "Game Screen"}); 
     }
 
     return(

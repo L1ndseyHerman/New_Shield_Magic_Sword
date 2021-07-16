@@ -68,7 +68,7 @@ function ChooseElementButtonWithExplanation(props)
     const buttonText = props.buttonText; 
 
     const chooseElementButtonPressed = () => {
-       props.callback({pressedNextScreenButton: true, playerOneElement: buttonText, 
+       props.callback({screenName: "Game Screen", playerOneElement: buttonText, 
         playerOneElementColor: playerOneElementColor, computerElement: computerElement,
         computerElementColor: computerElementColor}); 
     }
