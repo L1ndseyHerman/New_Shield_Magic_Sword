@@ -3,7 +3,7 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Starting Version 3.5, which is more unit testing with Jest, because I
+                Done with Version 3.5, which is more unit testing with Jest, because I
                 finally figured out how to test things other than .textContent!
             </p>
             <p>
