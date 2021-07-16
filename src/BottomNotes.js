@@ -4,7 +4,7 @@ function BottomNotes()
         <div>
             <p>
                 Done with Version 3.5, which is more unit testing with Jest, because I
-                finally figured out how to test things other than .textContent!
+                finally figured out how to test things other than .textContent! 
             </p>
             <p>
                 If you are a software developer who wants to look at 
