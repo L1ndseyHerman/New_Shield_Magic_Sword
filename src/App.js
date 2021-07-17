@@ -165,6 +165,8 @@ function App()
   //  Reordered these const/variables a little to be kind of in order of the screens they happen on? 
   const [screenName, setScreenName] = useState("Shield-Magic-Sword");
 
+  const [playerOneCharacterType, setPlayerOneCharacterType] = useState("None Yet");
+
   const [playerOneElement, setPlayerOneElement] = useState("None Yet");
   const [computerElement, setComputerElement] = useState("None Yet");
   //  Wheat is the default button color in index.css, so I'm using it as the default color here too.
@@ -257,6 +259,7 @@ function App()
 
   const chooseCharacterTypeButtonPressed = (characterTypeButtonSettings) => {
     setScreenName(characterTypeButtonSettings.screenName);
+    setPlayerOneCharacterType(characterTypeButtonSettings.playerOneCharacterType);
   }
 
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
@@ -381,11 +384,11 @@ function App()
             <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
               floatDirection="left" constantElementText="Player1 element: "
               element={playerOneElement} elementColor={playerOneElementColor}
-              choice={playerOneChoice} />
+              choice={playerOneChoice} characterType={playerOneCharacterType} />
             <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
               floatDirection="right" constantElementText="Computer element: "
               element={computerElement} elementColor={computerElementColor}
-              choice={computerChoice} />
+              choice={computerChoice} characterType="Placeholder Text" />
           </div>
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}

@@ -3,8 +3,10 @@ import styles from './ChooseCharacterTypeButtonWithExplanation.module.css';
 function ChooseCharacterTypeButtonWithExplanation(props)
 {
 
+    const buttonText = props.buttonText;
+
     const characterTypeButtonPressed = () => {
-        props.callback({screenName: "Element Selection Screen"}); 
+        props.callback({screenName: "Element Selection Screen", playerOneCharacterType: buttonText}); 
      }
 
     return(

@@ -15,6 +15,9 @@ function PlayerInfo(props)
                     {props.element}
                 </span> 
             </p>
+            <p id="TESTSOON">
+                {props.characterType}
+            </p>
             <PlayerInfoImage choice={props.choice} floatDirection={props.floatDirection}
                 element={props.element} />
         </div>
