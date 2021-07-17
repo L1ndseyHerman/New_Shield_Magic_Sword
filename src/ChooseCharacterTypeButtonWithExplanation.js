@@ -10,12 +10,13 @@ function ChooseCharacterTypeButtonWithExplanation(props)
     return(
         <div className={styles.buttonWithExplanationDiv}>
             <div class="centeredDivPerfectButtonSize">
-                <button style={{background: "wheat"}} onClick={() => {characterTypeButtonPressed()}}>
-                    Placeholder Text
+                <button style={{background: props.buttonColor}} 
+                    onClick={() => {characterTypeButtonPressed()}}>
+                    {props.buttonText}
                 </button>
             </div>
             <p>
-                Placeholder Text
+                {props.explanation}
             </p>
         </div>
     );

@@ -302,9 +302,15 @@ function App()
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
-          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
-          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
-          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
+          <ChooseCharacterTypeButtonWithExplanation buttonColor="darkolivegreen"
+            buttonText="Bodyguard" explanation="Block +1 Magic Damage when using Shield." 
+            callback={chooseCharacterTypeButtonPressed} />
+          <ChooseCharacterTypeButtonWithExplanation buttonColor="royalblue"
+            buttonText="Mage" explanation="Deal +1 Magic Damage when using Magic." 
+            callback={chooseCharacterTypeButtonPressed} />
+          <ChooseCharacterTypeButtonWithExplanation buttonColor="firebrick"
+            buttonText="Assassin" explanation="Deal +1 Physical Damage when using Sword."
+            callback={chooseCharacterTypeButtonPressed} />
         </div>
       </div>
     </main>
