@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import BeginGameButton from './BeginGameButton';
 import BottomNotes from './BottomNotes';
 
+import ChooseCharacterTypeButtonWithExplanation from './ChooseCharacterTypeButtonWithExplanation';
+
 import ChooseElementButtonWithExplanation from './ChooseElementButtonWithExplanation';
 
 import GameButtonWithExplanation from './GameButtonWithExplanation';
@@ -253,6 +255,10 @@ function App()
     setScreenName(beginGameButtonSettings.screenName);
   }
 
+  const chooseCharacterTypeButtonPressed = (characterTypeButtonSettings) => {
+    setScreenName(characterTypeButtonSettings.screenName);
+  }
+
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
     setScreenName(chooseElementButtonSettings.screenName);
     setPlayerOneElement(chooseElementButtonSettings.playerOneElement);
@@ -282,6 +288,26 @@ function App()
           <BottomNotes />
         </div>
       </main>
+    );
+  }
+
+  else if (screenName === "Character Type Selection Screen")
+  {
+    return (
+      <main>   
+      <div id="outermostDiv">
+        <h1>{screenName}</h1>
+        <p>
+          This screen is in-progress. Press any button to go to the next screen.
+        </p>
+        <br/>
+        <div id="buttonsAndExplanationsDiv">
+          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
+          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
+          <ChooseCharacterTypeButtonWithExplanation callback={chooseCharacterTypeButtonPressed} />
+        </div>
+      </div>
+    </main>
     );
   }
 

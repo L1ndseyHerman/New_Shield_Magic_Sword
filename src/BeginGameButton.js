@@ -2,7 +2,7 @@
 function BeginGameButton(props)
 {
     const beginGameButtonPressed = () => {
-       props.callback({screenName: "Element Selection Screen"}); 
+       props.callback({screenName: "Character Type Selection Screen"}); 
     }
 
     return(

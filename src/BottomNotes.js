@@ -19,7 +19,7 @@ function BottomNotes()
                 for being a great ReactJS learning resource.
             </p>
             <p>And check out <a href="https://l1ndseyherman.github.io/">My Other Website</a>.</p>
-            <footer>This is a React JS Progressive Web App. Updated 07/16/21</footer>
+            <footer>This is a React JS Progressive Web App. Updated 07/17/21</footer>
         </div>
     );
 }
