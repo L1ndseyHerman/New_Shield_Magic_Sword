@@ -4,7 +4,7 @@ function BottomNotes()
         <div>
             <p>
                 Done with Version 4, which involves character types: Bodyguard, Mage,
-                and Assassin.
+                and Assassin. 
             </p>
             <p>
                 If you are a software developer who wants to look at 
