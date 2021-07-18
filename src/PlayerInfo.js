@@ -3,7 +3,7 @@ import PlayerInfoImage from "./PlayerInfoImage";
 
 function PlayerInfo(props)
 {
-    //  #testingPar1 and #testingPar2 are needed for Jest testing.
+    //  #testingPars are needed for Jest testing.
     return(
         <div style={{width: "150px", float: props.floatDirection}}>
             <p id="testingPar1">
@@ -15,7 +15,7 @@ function PlayerInfo(props)
                     {props.element}
                 </span> 
             </p>
-            <p id="TESTSOON">
+            <p id="testingPar3">
                 {props.characterType}
             </p>
             <PlayerInfoImage choice={props.choice} floatDirection={props.floatDirection}
