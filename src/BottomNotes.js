@@ -3,8 +3,8 @@ function BottomNotes()
     return(
         <div>
             <p>
-                Done with Version 4, which involves character types: Bodyguard, Mage,
-                and Assassin.
+                Starting Version 4.1, which will be updating the Jest unit tests and 
+                cleaning up the code.
             </p>
             <p>
                 If you are a software developer who wants to look at 
