@@ -176,18 +176,18 @@ function App()
 
   const [playerOneChoice, setPlayerOneChoice] = useState("First Turn");
   const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
-  var playerOneHealth = 10;
-  var computerHealth = 10;
+  var playerOneHealth = 20;
+  var computerHealth = 20;
 
   const [isNotNewGame, setIsNotNewGame] = useState(true);
   var buttonsAndExplanationsDivDisplay = "block";
   var newGameButtonDisplay = "none";
 
-  //  Already reset to 10 if it is :)
+  //  Already reset to 20 if it is :)
   if (isNotNewGame)
   {
-    playerOneHealth = Number(sessionStorage.getItem("playerOneHealth") || 10);
-    computerHealth = Number(sessionStorage.getItem("computerHealth") || 10);
+    playerOneHealth = Number(sessionStorage.getItem("playerOneHealth") || 20);
+    computerHealth = Number(sessionStorage.getItem("computerHealth") || 20);
   }
 
   if (playerOneChoice !== "First Turn") 
@@ -200,15 +200,18 @@ function App()
     if (playerOneChoice === "Shield" && playerOneCharacterType === "Bodyguard"
       && computerChoice === "Magic")
     {
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType = -1;
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType - 1;
     }
-    else if (computerChoice === "Magic" && computerCharacterType === "Mage")
+    if (computerChoice === "Magic" && computerCharacterType === "Mage")
     {
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 1;
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
     }
-    else if (computerChoice === "Sword" && computerCharacterType === "Assassin")
+    if (computerChoice === "Sword" && computerCharacterType === "Assassin")
     {
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 1;
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
     }
 
     var computerElementalBonusDamage = 0;
@@ -232,15 +235,18 @@ function App()
     if (computerChoice === "Shield" && computerCharacterType === "Bodyguard"
       && playerOneChoice === "Magic")
     {
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = -1;
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType - 1;
     }
-    else if (playerOneChoice === "Magic" && playerOneCharacterType === "Mage")
+    if (playerOneChoice === "Magic" && playerOneCharacterType === "Mage")
     {
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 1;
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
     }
-    else if (playerOneChoice === "Sword" && playerOneCharacterType === "Assassin")
+    if (playerOneChoice === "Sword" && playerOneCharacterType === "Assassin")
     {
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 1;
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
     }
 
     var playerOneElementalBonusDamage = 0;
@@ -269,8 +275,8 @@ function App()
   //  This is so you can't refresh the page in the middle of a game to get a more favorable element.
   //  No cheating, lol. If you go back to the elementSelectScreen, the score resets.
   useEffect(() => {
-    sessionStorage.setItem("playerOneHealth", 10);
-    sessionStorage.setItem("computerHealth", 10);
+    sessionStorage.setItem("playerOneHealth", 20);
+    sessionStorage.setItem("computerHealth", 20);
     sessionStorage.setItem("lastComputerChoice", "First Turn");
   }, [screenName])
 
