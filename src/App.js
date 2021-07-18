@@ -197,21 +197,29 @@ function App()
     var playerOneHealthLost = checkThisPlayersHealthLost(playerOneChoice, computerChoice);
   
     var playerOneLoosesThisMuchHealthDueToComputerCharacterType = 0;
+    var computerCharacterTypeText = "";
+
     if (playerOneChoice === "Shield" && playerOneCharacterType === "Bodyguard"
       && computerChoice === "Magic")
     {
       playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType - 1;
+        playerOneLoosesThisMuchHealthDueToComputerCharacterType - 1;
+      computerCharacterTypeText = computerCharacterTypeText +
+        "(-1 Magic Damage because Player1 is a Bodyguard.) ";
     }
     if (computerChoice === "Magic" && computerCharacterType === "Mage")
     {
       playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
+        playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
+      computerCharacterTypeText = computerCharacterTypeText +
+        "(+1 Magic Damage because Computer is a Mage.) ";
     }
     if (computerChoice === "Sword" && computerCharacterType === "Assassin")
     {
       playerOneLoosesThisMuchHealthDueToComputerCharacterType = 
-      playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
+        playerOneLoosesThisMuchHealthDueToComputerCharacterType + 1;
+      computerCharacterTypeText = computerCharacterTypeText +
+        "(+1 Physical Damage because Computer is an Assassin.) ";
     }
 
     var computerElementalBonusDamage = 0;
@@ -232,21 +240,29 @@ function App()
     var computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
 
     var computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 0;
+    var playerOneCharacterTypeText = "";
+
     if (computerChoice === "Shield" && computerCharacterType === "Bodyguard"
       && playerOneChoice === "Magic")
     {
       computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType - 1;
+        computerLoosesThisMuchHealthDueToPlayerOneCharacterType - 1;
+      playerOneCharacterTypeText = playerOneCharacterTypeText +
+        "(-1 Magic Damage because Computer is a Bodyguard.) ";
     }
     if (playerOneChoice === "Magic" && playerOneCharacterType === "Mage")
     {
       computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
+        computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
+      playerOneCharacterTypeText = playerOneCharacterTypeText +
+        "(+1 Magic Damage because Player1 is a Mage.) ";
     }
     if (playerOneChoice === "Sword" && playerOneCharacterType === "Assassin")
     {
       computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 
-      computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
+        computerLoosesThisMuchHealthDueToPlayerOneCharacterType + 1;
+      playerOneCharacterTypeText = playerOneCharacterTypeText +
+        "(+1 Physical Damage because Player1 is an Assassin.) ";
     }
 
     var playerOneElementalBonusDamage = 0;
@@ -344,7 +360,7 @@ function App()
       <div id="outermostDiv">
         <h1>{screenName}</h1>
         <p>
-          This screen is in-progress. Press any button to go to the next screen.
+          Choose a character type. The computer will randomly choose one.
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
@@ -436,11 +452,11 @@ function App()
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}
             playerOneChoice={playerOneChoice} 
-            playerOneCharacterTypeText="Placeholder Text"
+            playerOneCharacterTypeText={playerOneCharacterTypeText}
             playerOneElementalBonusText={playerOneElementalBonusText}
             computerElementColor={computerElementColor}
             computerChoice={computerChoice}
-            computerCharacterTypeText="Placeholder Text"
+            computerCharacterTypeText={computerCharacterTypeText}
             computerElementalBonusText={computerElementalBonusText}
             winLooseTieText={winLooseTieText} />
           <NewGameButton newGameButtonDisplay={newGameButtonDisplay}

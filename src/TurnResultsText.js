@@ -20,7 +20,7 @@ function TurnResultsText(props)
                     style={{color: "wheat", backgroundColor: "black"}}>
                     {props.playerOneCharacterTypeText}</span> <span id="testingSpan1"
                     style={{color: props.playerOneElementColor, backgroundColor: "black"}}>
-                    {props.playerOneElementalBonusText}</span> and Computer 
+                    {props.playerOneElementalBonusText}</span>&nbsp; and Computer 
                     chose {props.computerChoice} <span
                     style={{color: "wheat", backgroundColor: "black"}}>
                     {props.computerCharacterTypeText}</span> <span id="testingSpan2" 
