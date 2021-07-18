@@ -166,6 +166,7 @@ function App()
   const [screenName, setScreenName] = useState("Shield-Magic-Sword");
 
   const [playerOneCharacterType, setPlayerOneCharacterType] = useState("None Yet");
+  const [computerCharacterType, setComputerCharacterType] = useState("None Yet");
 
   const [playerOneElement, setPlayerOneElement] = useState("None Yet");
   const [computerElement, setComputerElement] = useState("None Yet");
@@ -260,6 +261,7 @@ function App()
   const chooseCharacterTypeButtonPressed = (characterTypeButtonSettings) => {
     setScreenName(characterTypeButtonSettings.screenName);
     setPlayerOneCharacterType(characterTypeButtonSettings.playerOneCharacterType);
+    setComputerCharacterType(characterTypeButtonSettings.computerCharacterType);
   }
 
   const chooseElementButtonPressed = (chooseElementButtonSettings) => {
@@ -388,7 +390,7 @@ function App()
             <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
               floatDirection="right" constantElementText="Computer element: "
               element={computerElement} elementColor={computerElementColor}
-              choice={computerChoice} characterType="Placeholder Text" />
+              choice={computerChoice} characterType={computerCharacterType} />
           </div>
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}
