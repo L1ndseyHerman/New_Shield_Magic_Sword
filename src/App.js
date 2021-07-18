@@ -435,10 +435,12 @@ function App()
           </div>
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}
-            computerElementColor={computerElementColor}
             playerOneChoice={playerOneChoice} 
+            playerOneCharacterTypeText="Placeholder Text"
             playerOneElementalBonusText={playerOneElementalBonusText}
+            computerElementColor={computerElementColor}
             computerChoice={computerChoice}
+            computerCharacterTypeText="Placeholder Text"
             computerElementalBonusText={computerElementalBonusText}
             winLooseTieText={winLooseTieText} />
           <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
