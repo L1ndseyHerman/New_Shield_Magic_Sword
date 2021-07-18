@@ -195,12 +195,30 @@ function App()
     var computerChoice = makeComputerChoice();
 
     var playerOneHealthLost = checkThisPlayersHealthLost(playerOneChoice, computerChoice);
+  
+    var playerOneLoosesThisMuchHealthDueToComputerCharacterType = 0;
+    if (playerOneChoice === "Shield" && playerOneCharacterType === "Bodyguard"
+      && computerChoice === "Magic")
+    {
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = -1;
+    }
+    else if (computerChoice === "Magic" && computerCharacterType === "Mage")
+    {
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 1;
+    }
+    else if (computerChoice === "Sword" && computerCharacterType === "Assassin")
+    {
+      playerOneLoosesThisMuchHealthDueToComputerCharacterType = 1;
+    }
+
     var computerElementalBonusDamage = 0;
     if (computerChoice === "Magic")
     {
       computerElementalBonusDamage = checkBonusElementDamage(computerElement, playerOneElement);
     }
-    playerOneHealth = playerOneHealth - playerOneHealthLost - computerElementalBonusDamage;
+
+    playerOneHealth = playerOneHealth - playerOneHealthLost - computerElementalBonusDamage
+      - playerOneLoosesThisMuchHealthDueToComputerCharacterType;
 
     var computerElementalBonusText = "";
     if (computerElementalBonusDamage > 0)
@@ -209,12 +227,29 @@ function App()
     }
 
     var computerHealthLost = checkThisPlayersHealthLost(computerChoice, playerOneChoice);
+
+    var computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 0;
+    if (computerChoice === "Shield" && computerCharacterType === "Bodyguard"
+      && playerOneChoice === "Magic")
+    {
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = -1;
+    }
+    else if (playerOneChoice === "Magic" && playerOneCharacterType === "Mage")
+    {
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 1;
+    }
+    else if (playerOneChoice === "Sword" && playerOneCharacterType === "Assassin")
+    {
+      computerLoosesThisMuchHealthDueToPlayerOneCharacterType = 1;
+    }
+
     var playerOneElementalBonusDamage = 0;
     if (playerOneChoice === "Magic")
     {
       playerOneElementalBonusDamage = checkBonusElementDamage(playerOneElement, computerElement);
     }
-    computerHealth = computerHealth - computerHealthLost - playerOneElementalBonusDamage;
+    computerHealth = computerHealth - computerHealthLost - playerOneElementalBonusDamage -
+    computerLoosesThisMuchHealthDueToPlayerOneCharacterType;
 
     var playerOneElementalBonusText = "";
     if (playerOneElementalBonusDamage > 0)

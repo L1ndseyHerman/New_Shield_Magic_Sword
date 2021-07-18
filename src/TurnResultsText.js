@@ -13,6 +13,8 @@ function TurnResultsText(props)
                 <br/>
                 <br/>
                 <br/>
+                <br/>
+                <br/>
                 <p>
                     Player1 chose {props.playerOneChoice} <span id="testingSpan1"
                     style={{color: props.playerOneElementColor, backgroundColor: "black"}}>
