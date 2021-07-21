@@ -3,6 +3,11 @@ function BottomNotes()
     return(
         <div>
             <p>
+                I'm taking a break from this for a day or two to 
+                watch <a href="https://www.youtube.com/watch?v=nTeuhbP7wdE">This 7-Hour React 
+                JS YouTube Video</a> by freeCodeCamp.org.
+            </p>
+            <p>
                 Starting Version 4.1, which will be updating the Jest unit tests and 
                 cleaning up the code.
             </p>
