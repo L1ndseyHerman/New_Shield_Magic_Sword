@@ -115,7 +115,8 @@ function PlayerInfoImage(props)
     }
     //  Player1 didn't take any turns yet, or error:
     return(
-        <div />
+        //  Another fragment
+        <></>
     );
 }
     

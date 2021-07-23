@@ -3,7 +3,8 @@ function TurnResultsText(props)
     if (props.playerOneChoice !== "First Turn")
     {
         return(
-            <div>
+            //  Yet another fragment!
+            <>
                 <br/>
                 <br/>
                 <br/>
@@ -28,15 +29,13 @@ function TurnResultsText(props)
                     backgroundColor: "black"}}>{props.computerElementalBonusText}
                     </span>. {props.winLooseTieText}
                 </p>
-            </div>
+            </>
         );
     }
     else 
     {
         return(
-            <div>
-                <p></p>
-            </div>
+            <p/>
         )
     }
 }
