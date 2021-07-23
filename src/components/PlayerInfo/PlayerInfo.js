@@ -1,5 +1,6 @@
-import PlayerInfoImage from "./PlayerInfoImage";
-
+import PlayerInfoImage from "../PlayerInfoImage/PlayerInfoImage";
+//import PlayerInfoImage from "./components/PlayerInfoImage/PlayerInfoImage";
+//import PlayerInfoImage from ".../PlayerInfoImage";
 
 function PlayerInfo(props)
 {

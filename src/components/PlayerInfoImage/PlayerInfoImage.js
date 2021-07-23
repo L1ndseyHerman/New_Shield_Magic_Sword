@@ -1,20 +1,20 @@
 import styles from './PlayerInfoImage.module.css';
 
-import shieldImage from './SmolShield.png';
-import leftFireMagicImage from './SmolLeftMagicColorfulFire.png';
-import rightFireMagicImage from './SmolRightMagicColorfulFire.png';
-import leftEarthMagicImage from './SmolLeftMagicColorfulEarth.png';
-import rightEarthMagicImage from './SmolRightMagicColorfulEarth.png';
-import leftAirMagicImage from './SmolLeftMagicColorfulAir.png';
-import rightAirMagicImage from './SmolRightMagicColorfulAir.png';
-import leftWaterMagicImage from './SmolLeftMagicColorfulWater.png';
-import rightWaterMagicImage from './SmolRightMagicColorfulWater.png';
-import leftLightMagicImage from './SmolLeftMagicColorfulLight.png';
-import rightLightMagicImage from './SmolRightMagicColorfulLight.png';
-import leftDarkMagicImage from './SmolLeftMagicColorfulDark.png';
-import rightDarkMagicImage from './SmolRightMagicColorfulDark.png';
-import leftSwordImage from './SmolLeftSword.png';
-import rightSwordImage from './SmolRightSword.png';
+import shieldImage from '../../images/SmolShield.png';
+import leftFireMagicImage from '../../images/SmolLeftMagicColorfulFire.png';
+import rightFireMagicImage from '../../images/SmolRightMagicColorfulFire.png';
+import leftEarthMagicImage from '../../images/SmolLeftMagicColorfulEarth.png';
+import rightEarthMagicImage from '../../images/SmolRightMagicColorfulEarth.png';
+import leftAirMagicImage from '../../images/SmolLeftMagicColorfulAir.png';
+import rightAirMagicImage from '../../images/SmolRightMagicColorfulAir.png';
+import leftWaterMagicImage from '../../images/SmolLeftMagicColorfulWater.png';
+import rightWaterMagicImage from '../../images/SmolRightMagicColorfulWater.png';
+import leftLightMagicImage from '../../images/SmolLeftMagicColorfulLight.png';
+import rightLightMagicImage from '../../images/SmolRightMagicColorfulLight.png';
+import leftDarkMagicImage from '../../images/SmolLeftMagicColorfulDark.png';
+import rightDarkMagicImage from '../../images/SmolRightMagicColorfulDark.png';
+import leftSwordImage from '../../images/SmolLeftSword.png';
+import rightSwordImage from '../../images/SmolRightSword.png';
 
 function PlayerInfoImage(props)
 {

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import BeginGameButton from './BeginGameButton';
-import BottomNotes from './BottomNotes';
+import BeginGameButton from './components/BeginGameButton/BeginGameButton';
+import BottomNotes from './components/BottomNotes/BottomNotes';
 
-import ChooseCharacterTypeButtonWithExplanation from './ChooseCharacterTypeButtonWithExplanation';
+import ChooseCharacterTypeButtonWithExplanation from './components/ChooseCharacterTypeButtonWithExplanation/ChooseCharacterTypeButtonWithExplanation';
 
-import ChooseElementButtonWithExplanation from './ChooseElementButtonWithExplanation';
+import ChooseElementButtonWithExplanation from './components/ChooseElementButtonWithExplanation/ChooseElementButtonWithExplanation';
 
-import GameButtonWithExplanation from './GameButtonWithExplanation';
-import PlayerInfo from './PlayerInfo';
-import TurnResultsText from './TurnResultsText';
-import NewGameButton from './NewGameButton';
+import GameButtonWithExplanation from './components/GameButtonWithExplanation/GameButtonWithExplanation';
+import PlayerInfo from './components/PlayerInfo/PlayerInfo';
+import TurnResultsText from './components/TurnResultsText/TurnResultsText';
+import NewGameButton from './components/NewGameButton/NewGameButton';
  
 function makeComputerChoice()
 {

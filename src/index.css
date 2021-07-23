@@ -21,7 +21,7 @@ code {
 */
 
 main {
-  background-image: url(MeanderBorder40px.png);
+  background-image: url(images/MeanderBorder40px.png);
   padding-bottom: 40px;
   padding-top: 40px;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -87,7 +87,7 @@ footer {
 
 @media only screen and (max-width: 1024px) {
   main {
-    background-image: url(MeanderBorder10px.png);
+    background-image: url(images/MeanderBorder10px.png);
     padding-bottom: 10px;
     padding-top: 10px;
   }
