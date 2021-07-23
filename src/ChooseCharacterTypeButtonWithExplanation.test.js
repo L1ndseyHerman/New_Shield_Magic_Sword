@@ -22,13 +22,14 @@ it("renders Bodyguard button + explanation", () => {
 
   act(() => {
     render(<ChooseCharacterTypeButtonWithExplanation 
+        buttonColor="darkolivegreen"
         buttonText="Bodyguard" 
         explanation="Block +1 Magic Damage when using Shield."
-        buttonColor="darkolivegreen" />, container);
+    />, container);
   });
   
-  expect(container.querySelector("button").textContent).toBe("Bodyguard");
   expect(container.querySelector("button").style.background).toBe("darkolivegreen");
+  expect(container.querySelector("button").textContent).toBe("Bodyguard");
   expect(container.querySelector("p").textContent).toBe("Block +1 Magic Damage when using Shield.");
 
 });
@@ -37,13 +38,14 @@ it("renders Mage button + explanation", () => {
 
     act(() => {
       render(<ChooseCharacterTypeButtonWithExplanation 
+          buttonColor="royalblue"
           buttonText="Mage" 
-          explanation="Deal +1 Magic Damage when using Magic."
-          buttonColor="royalblue" />, container);
+          explanation="Deal +1 Magic Damage when using Magic." 
+      />, container);
     });
     
-    expect(container.querySelector("button").textContent).toBe("Mage");
     expect(container.querySelector("button").style.background).toBe("royalblue");
+    expect(container.querySelector("button").textContent).toBe("Mage");
     expect(container.querySelector("p").textContent).toBe("Deal +1 Magic Damage when using Magic.");
   
   });
@@ -52,13 +54,14 @@ it("renders Mage button + explanation", () => {
 
     act(() => {
       render(<ChooseCharacterTypeButtonWithExplanation 
+          buttonColor="firebrick"
           buttonText="Assassin" 
-          explanation="Deal +1 Physical Damage when using Sword."
-          buttonColor="firebrick" />, container);
+          explanation="Deal +1 Physical Damage when using Sword." 
+      />, container);
     });
     
-    expect(container.querySelector("button").textContent).toBe("Assassin");
     expect(container.querySelector("button").style.background).toBe("firebrick");
+    expect(container.querySelector("button").textContent).toBe("Assassin");
     expect(container.querySelector("p").textContent).toBe("Deal +1 Physical Damage when using Sword.");
   
   });

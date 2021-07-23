@@ -21,12 +21,17 @@ afterEach(() => {
 it("renders TurnResultsText example", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText="" playerOneElementalBonusText=""
-        computerChoice="Magic" computerCharacterTypeText=""
-        computerElementalBonusText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText="" 
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerCharacterTypeText=""
+      computerElementalBonusText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -39,12 +44,17 @@ it("renders TurnResultsText example", () => {
 it("renders different playerOneElementColor", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="darkorange" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText=""
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="darkorange" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerElementalBonusText="" c
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("darkorange");
@@ -57,11 +67,17 @@ it("renders different playerOneElementColor", () => {
 it("renders different computerElementColor", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="royalblue"
-        playerOneChoice="Shield" playerOneCharacterTypeText=""
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerElementColor="royalblue"
+      computerChoice="Magic" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -74,11 +90,17 @@ it("renders different computerElementColor", () => {
 it("renders different playerOneChoice", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Sword" playerOneCharacterTypeText=""
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Sword" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -91,11 +113,17 @@ it("renders different playerOneChoice", () => {
 it("renders different computerChoice", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" playerOneCharacterTypeText=""
-        playerOneElementalBonusText="" 
-        computerChoice="Sword" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen" 
+      computerChoice="Sword" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -108,13 +136,17 @@ it("renders different computerChoice", () => {
 it("renders playerOneCharacterTypeText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText="(+1 Magic Damage because Player1 is a Mage.) " 
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerCharacterTypeText=""
-        computerElementalBonusText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText="(+1 Magic Damage because Player1 is a Mage.) " 
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerCharacterTypeText=""
+      computerElementalBonusText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -127,13 +159,17 @@ it("renders playerOneCharacterTypeText", () => {
 it("renders playerOneCharacterTypeText two parts", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText="(-1 Magic Damage because Player1 is a Bodyguard.) (+1 Magic Damage because Player1 is a Mage.) " 
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerCharacterTypeText=""
-        computerElementalBonusText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText="(-1 Magic Damage because Player1 is a Bodyguard.) (+1 Magic Damage because Player1 is a Mage.) " 
+      playerOneElementalBonusText=""
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerCharacterTypeText=""
+      computerElementalBonusText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -147,13 +183,17 @@ it("renders playerOneCharacterTypeText two parts", () => {
 it("renders computerCharacterTypeText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText="" playerOneElementalBonusText=""
-        computerChoice="Magic" 
-        computerCharacterTypeText="(+1 Magic Damage because Computer is a Mage.) "
-        computerElementalBonusText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      computerElementColor="darkolivegreen"
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText="" 
+      playerOneElementalBonusText=""
+      computerChoice="Magic" 
+      computerCharacterTypeText="(+1 Magic Damage because Computer is a Mage.) "
+      computerElementalBonusText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -166,11 +206,17 @@ it("renders computerCharacterTypeText", () => {
 it("renders playerOneElementalBonusText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" playerOneCharacterTypeText=""
-        playerOneElementalBonusText="(+1 bonus elemental damage)"
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText="(+1 bonus elemental damage)"
+      computerElementColor="darkolivegreen"
+      computerChoice="Magic" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -183,12 +229,17 @@ it("renders playerOneElementalBonusText", () => {
 it("renders playerOneCharacterType and playerOneElementalBonusText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" 
-        playerOneCharacterTypeText="(+1 Magic Damage because Player1 is a Mage.) "
-        playerOneElementalBonusText="(+1 bonus elemental damage)"
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      computerElementColor="darkolivegreen"
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText="(+1 Magic Damage because Player1 is a Mage.) "
+      playerOneElementalBonusText="(+1 bonus elemental damage)"
+      computerChoice="Magic" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -202,12 +253,17 @@ it("renders playerOneCharacterType and playerOneElementalBonusText", () => {
 it("renders computerElementalBonusText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" playerOneCharacterTypeText=""
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerCharacterTypeText=""
-        computerElementalBonusText="(+1 bonus elemental damage)"
-        winLooseTieText="" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      computerElementColor="darkolivegreen"
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerChoice="Magic" 
+      computerCharacterTypeText=""
+      computerElementalBonusText="(+1 bonus elemental damage)"
+      winLooseTieText="" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");
@@ -220,11 +276,17 @@ it("renders computerElementalBonusText", () => {
 it("renders winText", () => {
 
   act(() => {
-    render(<TurnResultsText playerOneElementColor="firebrick" computerElementColor="darkolivegreen"
-        playerOneChoice="Shield" playerOneCharacterTypeText=""
-        playerOneElementalBonusText=""
-        computerChoice="Magic" computerElementalBonusText="" computerCharacterTypeText=""
-        winLooseTieText="Player1 wins!" />, container);
+    render(<TurnResultsText 
+      playerOneElementColor="firebrick" 
+      computerElementColor="darkolivegreen"
+      playerOneChoice="Shield" 
+      playerOneCharacterTypeText=""
+      playerOneElementalBonusText=""
+      computerChoice="Magic" 
+      computerElementalBonusText="" 
+      computerCharacterTypeText=""
+      winLooseTieText="Player1 wins!" 
+    />, container);
   });
   
   expect(container.querySelector("#testingSpan1").style.color).toBe("firebrick");

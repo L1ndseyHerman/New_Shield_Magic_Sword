@@ -364,14 +364,20 @@ function App()
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
-          <ChooseCharacterTypeButtonWithExplanation buttonColor="darkolivegreen"
-            buttonText="Bodyguard" explanation="Block +1 Magic Damage when using Shield." 
+          <ChooseCharacterTypeButtonWithExplanation 
+            buttonColor="darkolivegreen"
+            buttonText="Bodyguard" 
+            explanation="Block +1 Magic Damage when using Shield." 
             callback={chooseCharacterTypeButtonPressed} />
-          <ChooseCharacterTypeButtonWithExplanation buttonColor="royalblue"
-            buttonText="Mage" explanation="Deal +1 Magic Damage when using Magic." 
+          <ChooseCharacterTypeButtonWithExplanation 
+            buttonColor="royalblue"
+            buttonText="Mage" 
+            explanation="Deal +1 Magic Damage when using Magic." 
             callback={chooseCharacterTypeButtonPressed} />
-          <ChooseCharacterTypeButtonWithExplanation buttonColor="firebrick"
-            buttonText="Assassin" explanation="Deal +1 Physical Damage when using Sword."
+          <ChooseCharacterTypeButtonWithExplanation 
+            buttonColor="firebrick"
+            buttonText="Assassin" 
+            explanation="Deal +1 Physical Damage when using Sword."
             callback={chooseCharacterTypeButtonPressed} />
         </div>
       </div>
@@ -390,24 +396,42 @@ function App()
         </p>
         <br/>
         <div id="buttonsAndExplanationsDiv">
-          <ChooseElementButtonWithExplanation buttonText="Fire" explanation="Earth"
-           buttonColor="firebrick" explanationColor="darkolivegreen"
-           callback={chooseElementButtonPressed} />
-          <ChooseElementButtonWithExplanation buttonText="Earth" explanation="Air"
-           buttonColor="darkolivegreen" explanationColor="darkorange"
-           callback={chooseElementButtonPressed} />
-          <ChooseElementButtonWithExplanation buttonText="Air" explanation="Water"
-           buttonColor="darkorange" explanationColor="royalblue"
-           callback={chooseElementButtonPressed} />
-          <ChooseElementButtonWithExplanation buttonText="Water" explanation="Fire"
-           buttonColor="royalblue" explanationColor="firebrick"
-           callback={chooseElementButtonPressed} />
-          <ChooseElementButtonWithExplanation buttonText="Light" explanation="Dark"
-           buttonColor="gold" explanationColor="rebeccapurple"
-           callback={chooseElementButtonPressed} />
-          <ChooseElementButtonWithExplanation buttonText="Dark" explanation="Light"
-           buttonColor="rebeccapurple" explanationColor="gold"
-           callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Fire" 
+            explanation="Earth"
+            buttonColor="firebrick" 
+            explanationColor="darkolivegreen"
+            callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Earth" 
+            explanation="Air"
+            buttonColor="darkolivegreen" 
+            explanationColor="darkorange"
+            callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Air" 
+            explanation="Water"
+            buttonColor="darkorange" 
+            explanationColor="royalblue"
+            callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Water" 
+            explanation="Fire"
+            buttonColor="royalblue" 
+            explanationColor="firebrick"
+            callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Light" 
+            explanation="Dark"
+            buttonColor="gold" 
+            explanationColor="rebeccapurple"
+            callback={chooseElementButtonPressed} />
+          <ChooseElementButtonWithExplanation 
+            buttonText="Dark" 
+            explanation="Light"
+            buttonColor="rebeccapurple" 
+            explanationColor="gold"
+            callback={chooseElementButtonPressed} />
         </div>
       </div>
     </main>
@@ -426,28 +450,50 @@ function App()
           </p>
           <br/>
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
-            <GameButtonWithExplanation buttonColor="darkolivegreen"
-              buttonText="Shield" explanation="Blocks two physical damage."
-              buttonNumber="0" isDisabled={disabledButtons[0]} disabledButtonArray={disabledButtons} 
+            <GameButtonWithExplanation 
+              buttonColor="darkolivegreen"
+              buttonText="Shield" 
+              explanation="Blocks two physical damage."
+              buttonNumber="0" 
+              isDisabled={disabledButtons[0]} 
+              disabledButtonArray={disabledButtons} 
               callback={gameButtonOrNewGameButtonPressed} />
-            <GameButtonWithExplanation buttonColor="royalblue"
-              buttonText="Magic" explanation="Deals one magic damage."
-              buttonNumber="1" isDisabled={disabledButtons[1]} disabledButtonArray={disabledButtons} 
+            <GameButtonWithExplanation 
+              buttonColor="royalblue"
+              buttonText="Magic" 
+              explanation="Deals one magic damage."
+              buttonNumber="1" 
+              isDisabled={disabledButtons[1]} 
+              disabledButtonArray={disabledButtons} 
               callback={gameButtonOrNewGameButtonPressed} />
-            <GameButtonWithExplanation buttonColor="firebrick"
-              buttonText="Sword" explanation="Deals two physical damage."
-              buttonNumber="2" isDisabled={disabledButtons[2]} disabledButtonArray={disabledButtons}  
+            <GameButtonWithExplanation 
+              buttonColor="firebrick"
+              buttonText="Sword" 
+              explanation="Deals two physical damage."
+              buttonNumber="2" 
+              isDisabled={disabledButtons[2]} 
+              disabledButtonArray={disabledButtons}  
               callback={gameButtonOrNewGameButtonPressed} />
           </div>
           <div id="healthDiv">
-            <PlayerInfo constantHealthText="Player1 health: " changingNumber={playerOneHealth} 
-              floatDirection="left" constantElementText="Player1 element: "
-              element={playerOneElement} elementColor={playerOneElementColor}
-              choice={playerOneChoice} characterType={playerOneCharacterType} />
-            <PlayerInfo constantHealthText="Computer health: " changingNumber={computerHealth} 
-              floatDirection="right" constantElementText="Computer element: "
-              element={computerElement} elementColor={computerElementColor}
-              choice={computerChoice} characterType={computerCharacterType} />
+            <PlayerInfo 
+              floatDirection="left"
+              constantHealthText="Player1 health: " 
+              changingNumber={playerOneHealth} 
+              constantElementText="Player1 element: "
+              element={playerOneElement} 
+              elementColor={playerOneElementColor}
+              characterType={playerOneCharacterType}
+              choice={playerOneChoice} />
+            <PlayerInfo 
+              floatDirection="right"
+              constantHealthText="Computer health: " 
+              changingNumber={computerHealth}  
+              constantElementText="Computer element: "
+              element={computerElement} 
+              elementColor={computerElementColor}
+              characterType={computerCharacterType}
+              choice={computerChoice} />
           </div>
           <TurnResultsText 
             playerOneElementColor={playerOneElementColor}
@@ -459,7 +505,8 @@ function App()
             computerCharacterTypeText={computerCharacterTypeText}
             computerElementalBonusText={computerElementalBonusText}
             winLooseTieText={winLooseTieText} />
-          <NewGameButton newGameButtonDisplay={newGameButtonDisplay}
+          <NewGameButton 
+            newGameButtonDisplay={newGameButtonDisplay}
             callback={gameButtonOrNewGameButtonPressed} />
         </div>
       </main>
