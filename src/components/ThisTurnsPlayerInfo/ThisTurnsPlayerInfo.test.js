@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import PlayerInfo from "./PlayerInfo";
+import ThisTurnsPlayerInfo from "./ThisTurnsPlayerInfo";
 
 let container = null;
 beforeEach(() => {
@@ -23,7 +23,7 @@ afterEach(() => {
 it("renders Player1 example", () => {
 
   act(() => {
-    render(<PlayerInfo 
+    render(<ThisTurnsPlayerInfo 
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="10" 
@@ -45,7 +45,7 @@ it("renders Player1 example", () => {
 it("renders Computer example", () => {
 
   act(() => {
-    render(<PlayerInfo 
+    render(<ThisTurnsPlayerInfo 
       floatDirection="right"
       constantHealthText="Computer health: " 
       changingNumber="10" 
@@ -67,7 +67,7 @@ it("renders Computer example", () => {
 it("renders Player1 different health", () => {
 
   act(() => {
-    render(<PlayerInfo 
+    render(<ThisTurnsPlayerInfo
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="5"  
@@ -89,7 +89,7 @@ it("renders Player1 different health", () => {
 it("renders Player1 different element", () => {
 
   act(() => {
-    render(<PlayerInfo 
+    render(<ThisTurnsPlayerInfo 
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="10"  
@@ -111,7 +111,7 @@ it("renders Player1 different element", () => {
 it("renders Player1 different characterType", () => {
 
   act(() => {
-    render(<PlayerInfo 
+    render(<ThisTurnsPlayerInfo 
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="10"  

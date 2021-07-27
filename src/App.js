@@ -7,8 +7,9 @@ import ChooseCharacterTypeButtonWithExplanation from './components/ChooseCharact
 
 import ChooseElementButtonWithExplanation from './components/ChooseElementButtonWithExplanation/ChooseElementButtonWithExplanation';
 
+import ConstantPlayerInfo from './components/ConstantPlayerInfo/ConstantPlayerInfo';
 import GameButtonWithExplanation from './components/GameButtonWithExplanation/GameButtonWithExplanation';
-import PlayerInfo from './components/PlayerInfo/PlayerInfo';
+import ThisTurnsPlayerInfo from './components/ThisTurnsPlayerInfo/ThisTurnsPlayerInfo';
 import TurnResultsText from './components/TurnResultsText/TurnResultsText';
 import NewGameButton from './components/NewGameButton/NewGameButton';
  
@@ -448,7 +449,20 @@ function App()
             The rules of this game are that you can't make the same choice twice in a row,
             and neither can the computer. Use that to your advantage....
           </p>
-          <br/>
+          <div id="playerInfoDivs">
+            <ConstantPlayerInfo 
+              floatDirection="left"
+              constantElementText="Player1 element: "
+              element={playerOneElement} 
+              elementColor={playerOneElementColor}
+              characterType={playerOneCharacterType} />
+            <ConstantPlayerInfo 
+              floatDirection="right"
+              constantElementText="Computer element: "
+              element={computerElement} 
+              elementColor={computerElementColor}
+              characterType={computerCharacterType} />
+          </div>
           <div id="buttonsAndExplanationsDiv" style={{display: buttonsAndExplanationsDivDisplay}}>
             <GameButtonWithExplanation 
               buttonColor="darkolivegreen"
@@ -475,8 +489,8 @@ function App()
               disabledButtonArray={disabledButtons}  
               callback={gameButtonOrNewGameButtonPressed} />
           </div>
-          <div id="healthDiv">
-            <PlayerInfo 
+          <div id="playerInfoDivs">
+            <ThisTurnsPlayerInfo 
               floatDirection="left"
               constantHealthText="Player1 health: " 
               changingNumber={playerOneHealth} 
@@ -485,7 +499,7 @@ function App()
               elementColor={playerOneElementColor}
               characterType={playerOneCharacterType}
               choice={playerOneChoice} />
-            <PlayerInfo 
+            <ThisTurnsPlayerInfo
               floatDirection="right"
               constantHealthText="Computer health: " 
               changingNumber={computerHealth}  

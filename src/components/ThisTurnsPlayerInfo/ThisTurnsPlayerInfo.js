@@ -2,7 +2,7 @@ import PlayerInfoImage from "../PlayerInfoImage/PlayerInfoImage";
 //import PlayerInfoImage from "./components/PlayerInfoImage/PlayerInfoImage";
 //import PlayerInfoImage from ".../PlayerInfoImage";
 
-function PlayerInfo(props)
+function ThisTurnsPlayerInfo(props)
 {
     //  #testingPars are needed for Jest testing.
     return(
@@ -10,19 +10,10 @@ function PlayerInfo(props)
             <p id="testingPar1">
                 {props.constantHealthText}{props.changingNumber}
             </p>
-            <p id="testingPar2">
-                {props.constantElementText}
-                <span style={{color: props.elementColor, backgroundColor: "black"}}>
-                    {props.element}
-                </span> 
-            </p>
-            <p id="testingPar3">
-                {props.characterType}
-            </p>
             <PlayerInfoImage choice={props.choice} floatDirection={props.floatDirection}
                 element={props.element} />
         </div>
     );
 }
     
-export default PlayerInfo;
+export default ThisTurnsPlayerInfo;

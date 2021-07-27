@@ -5,17 +5,6 @@ function TurnResultsText(props)
         return(
             //  Yet another fragment!
             <>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <p>
                     Player1 chose {props.playerOneChoice} <span 
                     style={{color: "wheat", backgroundColor: "black"}}>

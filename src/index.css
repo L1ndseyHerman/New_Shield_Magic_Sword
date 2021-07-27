@@ -65,10 +65,11 @@ button {
   background-color: wheat;
 }
 
-#healthDiv {
+#playerInfoDivs {
   margin-left: auto;
   margin-right: auto;
   width: 700px;
+  height: 140px;
 }
 
 p {
@@ -103,7 +104,7 @@ footer {
     width: 320px;
   }
 
-  #healthDiv {
+  #playerInfoDivs {
     width: 320px;
   }
 }
