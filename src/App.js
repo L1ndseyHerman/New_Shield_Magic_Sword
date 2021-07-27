@@ -494,19 +494,13 @@ function App()
               floatDirection="left"
               constantHealthText="Player1 health: " 
               changingNumber={playerOneHealth} 
-              constantElementText="Player1 element: "
               element={playerOneElement} 
-              elementColor={playerOneElementColor}
-              characterType={playerOneCharacterType}
               choice={playerOneChoice} />
             <ThisTurnsPlayerInfo
               floatDirection="right"
               constantHealthText="Computer health: " 
               changingNumber={computerHealth}  
-              constantElementText="Computer element: "
               element={computerElement} 
-              elementColor={computerElementColor}
-              characterType={computerCharacterType}
               choice={computerChoice} />
           </div>
           <TurnResultsText 

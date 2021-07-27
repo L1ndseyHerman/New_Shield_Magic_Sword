@@ -20,6 +20,8 @@ afterEach(() => {
 
 //  I didn't test every possible combination here, but I think this is a good 
 //  sample size/tests the general idea.
+
+//  The missing props are tested for PlayerInfoImage and are tested there.
 it("renders Player1 example", () => {
 
   act(() => {
@@ -27,18 +29,11 @@ it("renders Player1 example", () => {
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="10" 
-      constantElementText="Player1 element: " 
-      element="Fire" 
-      elementColor="firebrick" 
-      characterType="Bodyguard" 
     />, container);
   });
   
   expect(container.querySelector("div").style.float).toBe("left");
-  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 10");
-  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Fire");
-  expect(container.querySelector("span").style.color).toBe("firebrick");
-  expect(container.querySelector("#testingPar3").textContent).toBe("Bodyguard");
+  expect(container.querySelector("p").textContent).toBe("Player1 health: 10");
 
 });
 
@@ -49,18 +44,11 @@ it("renders Computer example", () => {
       floatDirection="right"
       constantHealthText="Computer health: " 
       changingNumber="10" 
-      constantElementText="Computer element: " 
-      element="Fire" 
-      elementColor="firebrick" 
-      characterType="Bodyguard" 
     />, container);
   });
   
   expect(container.querySelector("div").style.float).toBe("right");
-  expect(container.querySelector("#testingPar1").textContent).toBe("Computer health: 10");
-  expect(container.querySelector("#testingPar2").textContent).toBe("Computer element: Fire");
-  expect(container.querySelector("span").style.color).toBe("firebrick");
-  expect(container.querySelector("#testingPar3").textContent).toBe("Bodyguard");
+  expect(container.querySelector("p").textContent).toBe("Computer health: 10");
 
 });
 
@@ -71,61 +59,10 @@ it("renders Player1 different health", () => {
       floatDirection="left"
       constantHealthText="Player1 health: " 
       changingNumber="5"  
-      constantElementText="Player1 element: " 
-      element="Fire" 
-      elementColor="firebrick" 
-      characterType="Bodyguard" 
     />, container);
   });
   
   expect(container.querySelector("div").style.float).toBe("left");
-  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 5");
-  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Fire");
-  expect(container.querySelector("span").style.color).toBe("firebrick");
-  expect(container.querySelector("#testingPar3").textContent).toBe("Bodyguard");
-
-});
-
-it("renders Player1 different element", () => {
-
-  act(() => {
-    render(<ThisTurnsPlayerInfo 
-      floatDirection="left"
-      constantHealthText="Player1 health: " 
-      changingNumber="10"  
-      constantElementText="Player1 element: " 
-      element="Earth" 
-      elementColor="darkolivegreen" 
-      characterType="Bodyguard" 
-    />, container);
-  });
-  
-  expect(container.querySelector("div").style.float).toBe("left");
-  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 10");
-  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Earth");
-  expect(container.querySelector("span").style.color).toBe("darkolivegreen");
-  expect(container.querySelector("#testingPar3").textContent).toBe("Bodyguard");
-
-});
-
-it("renders Player1 different characterType", () => {
-
-  act(() => {
-    render(<ThisTurnsPlayerInfo 
-      floatDirection="left"
-      constantHealthText="Player1 health: " 
-      changingNumber="10"  
-      constantElementText="Player1 element: " 
-      element="Fire" 
-      elementColor="firebrick" 
-      characterType="Mage" 
-    />, container);
-  });
-  
-  expect(container.querySelector("div").style.float).toBe("left");
-  expect(container.querySelector("#testingPar1").textContent).toBe("Player1 health: 10");
-  expect(container.querySelector("#testingPar2").textContent).toBe("Player1 element: Fire");
-  expect(container.querySelector("span").style.color).toBe("firebrick");
-  expect(container.querySelector("#testingPar3").textContent).toBe("Mage");
+  expect(container.querySelector("p").textContent).toBe("Player1 health: 5");
 
 });
