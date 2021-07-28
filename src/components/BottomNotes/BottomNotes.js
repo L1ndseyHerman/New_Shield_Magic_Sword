@@ -4,8 +4,8 @@ function BottomNotes()
         //  This is a "fragment", for if you don't want yet another div around a component.
         <>
             <p>
-                Starting Version 4.1, which will be updating the Jest unit tests and 
-                cleaning up the code.
+                Done with Version 4.1, which was updating the Jest unit tests and 
+                cleaning up the code. Version 4.2 will be adding TypeScript!
             </p>
             <p>
                 If you are a software developer who wants to look at 
