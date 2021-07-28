@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import HomeScreen from './components/HomeScreen/HomeScreen';
 import BeginGameButton from './components/BeginGameButton/BeginGameButton';
 import BottomNotes from './components/BottomNotes/BottomNotes';
 
@@ -344,13 +345,10 @@ function App()
   if (screenName === "Shield-Magic-Sword")
   {
     return (
-      <main>   
-        <div id="outermostDiv">
-          <h1>{screenName}</h1>
-          <BeginGameButton callback={beginGameButtonPressed} />
-          <BottomNotes />
-        </div>
-      </main>
+      <HomeScreen 
+        screenName={screenName}
+        callback={beginGameButtonPressed}
+      />
     );
   }
 
